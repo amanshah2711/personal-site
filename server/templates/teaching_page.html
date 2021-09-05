@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flask Template Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+  </head>
+
+  <body>
+    <div class="container">
+
+
+        <div class="row justify-content-md-center">
+            <div class="col-md-10">
+
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="navbar-brand" href="#">AMAN SHAH</a>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                      <div class="navbar-nav">
+                        <a class="nav-link" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" href="#">Teaching</a>
+                        <a class="nav-link" href="#">Notes</a>
+                      </div>
+                    </div>
+                </nav>
+
+            </div>
+        </div>
+
+
+
+        <div class="row justify-content-md-center">
+            <hr class="col-md-11"></hr>
+
+            <div class="col-md-10">
+                <h3 style="color:#047BFE;">CS61 Fall 2021</h3>
+            </div>
+        </div>
+          <div class="row justify-content-md-center">
+              <div class="col-md-5">
+                     <p> <b>Discussion:</b> Wed 6:30PM - 8:00PM PDT</p>
+                     <p> <b>Lab:</b> Wed 9:30AM - 11:00AM PDT</p>
+                     <p><b><a href="https://docs.google.com/forms/d/e/1FAIpQLSe051PwRPnKIJ9zPWQhA-6VBW3PgnyunvbA6cT75uswLXWJPQ/viewform">Anonymous Feedback Form</a></b></p>
+              </div>
+              <div class="col-md-5">
+                  <ul>
+                      <li>
+                          <p> Feel free to contact me at amanshah2711@berkeley.edu with any questions about cs61a, math, life at Berkeley, or anything else.</p>
+                      </li>
+                      <li>
+                          Additional resources or helpful links located at the bottom of the page.
+                      </li>
+                  </ul>
+
+              </div>
+          </div>
+
+
+          <div class="row justify-content-md-center">
+              <hr class="col-md-11"></hr>
+
+              <div class="col-md-10">
+                  <h3 style="color:#047BFE;">Schedule</h3>
+                          <table class="table table-striped table-borderless table-hover">
+                              <thead>
+                                  <tr>
+                                      <th>#</th>
+                                      <th>Date</th>
+                                      <th>Topic</th>
+                                      <th>Worksheet</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  {% for n in disc_info %}
+                                  <tr>
+                                      <td>{{n}}</td>
+                                      <td>Wed 6/22</td>
+                                      <td>Welcome to 61A! <br/><span class="badge bg-primary">Slides</span></td>
+                                      <td><a href={disc0wk} style="color:black;" target="_blank">Disc {{n}}</a><br/> <span class="badge bg-primary">Solution</span></td>
+                                  </tr>
+                                  {% endfor %}
+                              </tbody>
+
+                          </table>
+              </div>
+          </div>
+
+          <div class="row justify-content-md-center">
+              <hr class="col-md-11"></hr>
+
+              <div class="col-md-10">
+                  <h3 style="color:#047BFE;">Additional Resources</h3>
+                  <p>Content might be added here as the semester continues</p>
+              </div>
+          </div>
+    </div>
+    <script src="bootstrap/dist/css/bootstrap.min.css"></script>
+  </body>
+</html>

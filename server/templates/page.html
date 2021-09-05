@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title>{{ page.title }}</title>
+    <meta charset='UTF-8'>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+
+    <meta name='description' content='Gregory Gundersen is a PhD candidate at Princeton.'>
+    <meta name='keywords' content='{{ page.keywords }}'>
+    <meta name='author' content='Gregory Gundersen'>
+
+    <link href='/server/static/css/blog.css' rel='stylesheet'/>
+    <link href='/server/static/css/trac.css' rel='stylesheet'/>
+    <link href='/server/static/css/markdown.css' rel='stylesheet'/>
+
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script></head>
+<body>
+<div class='content'>
+    <div class='front-matter'>
+        <div class='wrap'>
+            <h1>{{ page.title }}</h1>
+            <h4>{{ page.subtitle }}</h4>
+            <div class='bylines'>
+                <div class='byline'>
+                    <h3>Published</h3>
+                    <p>{{ page.date}}</p>
+                </div>
+            </div>
+            <div class='clear'></div>
+        </div>
+    </div>
+    <div class='wrap article justify-content-center col-md-10'>
+
+        {{ page }}
+    </div>
+
+</div>
+</body>
+</html>
