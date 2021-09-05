@@ -1,15 +1,8 @@
 from server import app
 from flask_script import Manager
-from flask_frozen import Freezer
 import os
 from datetime import datetime
 manager = Manager(app)
-freezer = Freezer(app)
-@manager.command
-def freeze(debug=False):
-    if debug:
-        freezer.run(debug=True)
-    freezer.freeze()
 
 @manager.command
 def new_post(title):
