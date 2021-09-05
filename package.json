@@ -10,7 +10,7 @@
     "test": "tests"
   },
   "scripts": {
-    "flow": "flow; test $? -eq 0 -o $? -eq 2"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "dependencies": {
