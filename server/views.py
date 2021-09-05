@@ -2,7 +2,6 @@ from flask import abort, render_template, request, url_for, copy_current_request
 import os
 from server import app
 from flask_flatpages import FlatPages
-
 app.config.from_pyfile('settings.py')
 
 pages = FlatPages(app)
@@ -19,6 +18,7 @@ def page(path):
     # 'path is the filename of a page, without the file extension'
     # e.g. "first-post"
     page = pages.get_or_404(path)
+
     return render_template('page.html', page=page)
 
 @app.route('/load_discussion')
