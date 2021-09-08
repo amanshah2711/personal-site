@@ -14,6 +14,7 @@ function NavBar(){
     fontWeight: "bold",
     color: "black"
   }}>Teaching</NavLink>
+
                 </div>
               </div>
           </nav>

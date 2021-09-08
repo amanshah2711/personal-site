@@ -52,7 +52,7 @@ To completely describe the above system we assign
 
 and then use aforementioned matrix evolution to unambiguously define \\(\mathbf{x_n}\\) for all integers \\(n > 1\\)
 
-Using the machinery of Linear Algebra that EECS16A, EECS16B, Math54, etc. have built we can gain new insights into our problem. We duly observe the following fact: \\(\mathbf{A}\\) is a symmetric matrix (i.e \\(a_{ij} = a_{ji}\\) for all suitable \\(i, j\\)). A matrix being symmetric implies that geometrically it corresponds to nothing more than "stretches" along the appropriate directions. This idea is formally given rigor by the spectral theorem for linear operators over a complex field[^1]. This tells us that we can rewrite \\(\mathbf{A} = \mathbf{P}\mathbf{\Lambda}\mathbf{P}^{-1}\\) where \\(\mathbf{\Lambda}\\) is diagonal and \\(\mathbf{P}\\) has columns which are unit-norm and pairwise orthogonal. From this we see the repeated "stretches" algebraically correspond to,
+Using the machinery of Linear Algebra that EECS16A, EECS16B, Math54, etc. have built we can gain new insights into our problem. We duly observe the following fact: \\(\mathbf{A}\\) is a symmetric matrix (i.e \\(a_{ij} = a_{ji}\\) for all suitable \\(i, j\\)). A matrix being symmetric implies that geometrically it corresponds to nothing more than "stretches" along the appropriate directions. This idea is formally given rigor by the spectral theorem for linear operators over a complex field[^1]. This tells us that we can rewrite \\(\mathbf{A} = \mathbf{P}\mathbf{\Lambda}\mathbf{P}^{-1}\\) where \\(\mathbf{\Lambda}\\) is diagonal; thus we can say symmetric matrices are automatically diagonalizable which corresponds with the geometric intuition of what it means for a matrix and its transpose to be equivalent. The spectral theorem is not required knowledge. One can calculate eigenvalues and eigenvectors to see \\(\mathbf{A}\\) is diagonalizable, but it's nice to know the theory provides intuition as to why this is possible and guarantees our calculations are not in vain.
 
 \\[
 \begin{align}
@@ -64,17 +64,34 @@ Using the machinery of Linear Algebra that EECS16A, EECS16B, Math54, etc. have b
 \end{align}
 \\]
 
-Calculating the eigenvalues we have that \\(\lambda_{1} = \frac{1}{2}(1+\sqrt{5}) \\) and \\(\lambda_{2} = \frac{1}{2}(1-\sqrt{5}) \\). Numerically quite interesting because \\(\lambda_1\\), or the first eigenvalue, is famously known as the golden ratio[^2]. Calculating the corresponding eigenvectors and algebraically churning numbers out we get,
-
-
+Calculating the eigenvalues we have that \\(\lambda_{1} = \frac{1}{2}(1+\sqrt{5}) \\) and \\(\lambda_{2} = \frac{1}{2}(1-\sqrt{5}) \\). These eigenvalues are quite interesting because \\(\lambda_1\\), or the first eigenvalue, is famously known as the golden ratio[^2]. We can compute or easily verify that the corresponding eigenvectors \\(\mathbf{v}_1\\) and \\(\mathbf{v}_2\\) for \\(\lambda_1\\) and \\(\lambda_2\\) are,
 \\[
 \begin{align}
- \mathbf{x}\_{n} &= \mathbf{P}\mathbf{\Lambda}^{n-1}\mathbf{P}^{-1}\mathbf{x}_1 \\\\
-                  &= \begin{bmatrix} \frac{1}{\sqrt{5}}(\lambda_1^{n} - \lambda_2^{n}) \\\\ \frac{1}{\sqrt{5}}(\lambda_1^{n-1} - \lambda_2^{n-1})  \end{bmatrix}
+\mathbf{v}_1 &= \begin{bmatrix} \lambda_1 \\\\ 1 \end{bmatrix} \\\\
+\mathbf{v}_2 &= \begin{bmatrix} \lambda_2 \\\\ 1 \end{bmatrix}
 \end{align}
 \\]
 
-From our construction it then follows that, \\(f_n = \frac{1}{\sqrt{5}}(\lambda_1^{n} - \lambda_2^{n}) \\); this formula is also known as Binet's Formula[^3]. Now since we ascertained that counting the number of ways to go up \\(n\\) steps corresponds to \\(f_{n+1}\\) it follows that \\(\frac{1}{\sqrt{5}}(\lambda_1^{n} - \lambda_2^{n})\\) corresponds to the number of ways to go up \\(n\\) steps using steps of size \\(1\\) or \\(2\\).
+Given that our eigenvectors span a 2D space we can write our initial vector as \\(\mathbf{x}_1\\) as,
+\\[
+\begin{equation}
+  \mathbf{x}_1 = \frac{1}{\sqrt{5}}\mathbf{v}_1- \frac{1}{\sqrt{5}}\mathbf{v}_2
+\end{equation}
+\\]
+
+From this we can now proceed easily and get an explicit expression for Fibonacci numbers as follows,
+
+\\[
+\begin{align}
+ \mathbf{x}\_{n+1} &= \mathbf{A}^n\mathbf{x}_1 \\\\
+  &= \mathbf{A}^n \left(\frac{1}{\sqrt{5}}\mathbf{v}_1- \frac{1}{\sqrt{5}}\mathbf{v}_2 \right)\\\\
+  &= \mathbf{A}^n\frac{1}{\sqrt{5}}\mathbf{v}_1- \mathbf{A}^n\frac{1}{\sqrt{5}}\mathbf{v}_2
+ \\\\
+&= \frac{\lambda\_{1}^{n}}{\sqrt{5}}\mathbf{v}_1- \frac{\lambda\_{2}^{n}}{\sqrt{5}}\mathbf{v}_2
+\end{align}
+\\]
+
+From our construction it then follows that, \\(f_n = \frac{1}{\sqrt{5}}(\lambda_1^{n} - \lambda_2^{n}) \\); this formula is also known as Binet's Formula[^3]. Now since we ascertained that counting the number of ways to go up \\(n\\) steps corresponds to \\(f_{n+1}\\) it follows that \\(\frac{1}{\sqrt{5}}(\lambda_1^{n+1} - \lambda_2^{n+1})\\) corresponds to the number of ways to go up \\(n\\) steps using steps of size \\(1\\) or \\(2\\). The strategy here was to embed our Fibonacci updates into a higher dimension and then use Linear Algebra to reason a formula from our analysis; the result here is quite remarkable in that irrational values as eigenvalues lead to components of \\(\mathbf{x}_n\\) that are natural numbers.
 
 
 ### Iterative Solution
@@ -90,10 +107,10 @@ def count_stairways(n):
 ```
 
 
-[^1]: The name spectral being attached is largely credited to David Hilbert and relates to the use of similar methods to study atomic spectra in physics.
+[^1]: The name spectral being attached is largely credited to David Hilbert and his students. A surprising coincidence was that physicists later connected tools from spectral theory to quantum mechanics and the study of atomic spectra, making Hilbert's naming scheme remarkably apt.
 
 
-[^2]: This ratio has an odd claim to fame because many of its purported appearances in nature, art, and architecture are contested. However, certain parts of natures relating to spirals on sunflowers, or proportion of drones to female bees are related to the golden ratio for acknowledged as true.
+[^2]: This ratio has an odd claim to fame because many of its purported appearances in nature, art, and architecture are contested. However, it seems certain parts of nature such as spirals on sunflowers, or the proportion of drones to female bees have a legitimate connection to the golden ratio.
 
 
 [^3]: Though this formula was named after French Mathematician Jacques Phillipe Marie Binet, it was known to famous French Mathematician Abraham de Moivre, one century earlier.

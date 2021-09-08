@@ -1,7 +1,7 @@
 import os
 
 REPO_NAME = "flask-ghpages-example"  # Used for FREEZER_BASE_URL
-DEBUG = False
+DEBUG = True
 
 # Assumes the app is located in the same directory
 # where this file resides
