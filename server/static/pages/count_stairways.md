@@ -1,6 +1,6 @@
 title: Different Perspectives of Count Stair Ways
 subtitle: We explore various approaches to tackle the problem of distinct ways of climbing stairs
-date: 2021-09-04
+date: 2021-09-22
 
 To begin let's reiterate the problem statement. You are going up a stair case with \\( n \\) steps and can take either \\( 1 \\) or \\( 2 \\) steps at a time; how many distinct ways are there to climb this stair case?
 
@@ -42,7 +42,7 @@ The Fibonacci sequence is a sequence based on the recursive relationship, where 
 Embedding this sequence in two dimensions allows us to describe the recursive relationship via the following matrix evolution,
 
 \\[
-  \begin{align} \mathbf{x} &= \begin{bmatrix} 1 & 1 \\\\ 1 & 0 \end{bmatrix} \mathbf{x}\_{n-1} \\\\
+  \begin{align} \mathbf{x}\_{n} &= \begin{bmatrix} 1 & 1 \\\\ 1 & 0 \end{bmatrix} \mathbf{x}\_{n-1} \\\\
               &= \mathbf{A}x_{n-1}
 \end{align} \\]
 
@@ -50,9 +50,9 @@ To completely describe the above system we assign
 
 \\[\mathbf{x}_1 = \begin{bmatrix} 1 \\\\ 0 \end{bmatrix} \\]
 
-and then use aforementioned matrix evolution to unambiguously define \\(\mathbf{x_n}\\) for all integers \\(n > 1\\)
+and then use aforementioned matrix evolution to unambiguously define \\(\mathbf{x}_n\\) for all integers \\(n > 1\\). Looking at the matrix equation we now have that the first component of \\(\mathbf{x}_n\\) corresponds to the \\(n\\)-th Fibonacci number.
 
-Using the machinery of Linear Algebra that EECS16A, EECS16B, Math54, etc. have built we can gain new insights into our problem. We duly observe the following fact: \\(\mathbf{A}\\) is a symmetric matrix (i.e \\(a_{ij} = a_{ji}\\) for all suitable \\(i, j\\)). A matrix being symmetric implies that geometrically it corresponds to nothing more than "stretches" along the appropriate directions. This idea is formally given rigor by the spectral theorem for linear operators over a complex field[^1]. This tells us that we can rewrite \\(\mathbf{A} = \mathbf{P}\mathbf{\Lambda}\mathbf{P}^{-1}\\) where \\(\mathbf{\Lambda}\\) is diagonal; thus we can say symmetric matrices are automatically diagonalizable which corresponds with the geometric intuition of what it means for a matrix and its transpose to be equivalent. The spectral theorem is not required knowledge. One can calculate eigenvalues and eigenvectors to see \\(\mathbf{A}\\) is diagonalizable, but it's nice to know the theory provides intuition as to why this is possible and guarantees our calculations are not in vain.
+Using the machinery of Linear Algebra that EECS16A, EECS16B, Math54, etc. have built we attempt to gain insight by changing coordinates. By writing our matrix \\(\mathbf{A}\\) we implicitly chose the standard basis for our computations. However this choice of basis is arbitrary as any system of coordinates could suffice, so we look towards finding a system of coordinates that helps us understand the problem. In particular we are going to look for a system of coordinates, or a basis, such that \\(\mathbf{A}\\) is a diagonal matrix with respect to this basis. We choose a basis so that \\(\mathbf{A}\\) is diagonal with respect to this basis because this is the simplest kind of matrix to understand. At this point we can proceed by calculating eigenvalues, and eigenvectors and hoping we have enough to diagonalize \\(\mathbf{A}\\)(remember not all matrices are diagonalizable!). Cranking out our eigenvectors we find that we can diagonalize \\(\mathbf{A}\\) as \\(\mathbf{A} = \mathbf{P}\mathbf{\Lambda}\mathbf{P}^{-1}\\) and exploit this in the following manner,
 
 \\[
 \begin{align}
@@ -72,7 +72,7 @@ Calculating the eigenvalues we have that \\(\lambda_{1} = \frac{1}{2}(1+\sqrt{5}
 \end{align}
 \\]
 
-Given that our eigenvectors span a 2D space we can write our initial vector as \\(\mathbf{x}_1\\) as,
+Given that our eigenvectors span a 2D space, or they are linearly independent, we can write our initial vector as \\(\mathbf{x}_1\\) as,
 \\[
 \begin{equation}
   \mathbf{x}_1 = \frac{1}{\sqrt{5}}\mathbf{v}_1- \frac{1}{\sqrt{5}}\mathbf{v}_2
@@ -91,8 +91,9 @@ From this we can now proceed easily and get an explicit expression for Fibonacci
 \end{align}
 \\]
 
-From our construction it then follows that, \\(f_n = \frac{1}{\sqrt{5}}(\lambda_1^{n} - \lambda_2^{n}) \\); this formula is also known as Binet's Formula[^3]. Now since we ascertained that counting the number of ways to go up \\(n\\) steps corresponds to \\(f_{n+1}\\) it follows that \\(\frac{1}{\sqrt{5}}(\lambda_1^{n+1} - \lambda_2^{n+1})\\) corresponds to the number of ways to go up \\(n\\) steps using steps of size \\(1\\) or \\(2\\). The strategy here was to embed our Fibonacci updates into a higher dimension and then use Linear Algebra to reason a formula from our analysis; the result here is quite remarkable in that irrational values as eigenvalues lead to components of \\(\mathbf{x}_n\\) that are natural numbers.
+From our construction it then follows that, \\(f_n = \frac{1}{\sqrt{5}}(\lambda_1^{n} - \lambda_2^{n}) \\); this formula is also known as Binet's Formula[^3]. Now since we ascertained that counting the number of ways to go up \\(n\\) steps corresponds to \\(f_{n+1}\\) it follows that \\(\frac{1}{\sqrt{5}}(\lambda_1^{n+1} - \lambda_2^{n+1})\\) corresponds to the number of ways to go up \\(n\\) steps using steps of size \\(1\\) or \\(2\\). The strategy here was to embed our Fibonacci updates into a higher dimension and then use Linear Algebra to reason a formula from our analysis; the result here is quite remarkable in that irrational values as eigenvalues lead to components of \\(\mathbf{x}_n\\) that are natural numbers. This idea of embedding problems in higher dimensions is also incredibly powerful in mathematics and pops up everywhere in ordinary differential equations, partial differential equations, convex optimization, and many more.
 
+ One comment about the above approach was that we simply attempted to diagonalize \\(\mathbf{A}\\) without knowing if this was actually possible. It turns out there is a way to tell without computing anything that this was true and it follows from a really simple idea often introduced at the end of Math 54 or midway through EECS16B. We duly observe the following fact about our matrix: \\(\mathbf{A}\\) is a symmetric matrix (i.e \\(a_{ij} = a_{ji}\\) for all suitable \\(i, j\\)). A matrix being symmetric implies that geometrically it corresponds to nothing more than "stretches" along the appropriate directions. This idea is formally given rigor by the spectral theorem for linear operators over a complex field[^1]. This tells us that we can rewrite \\(\mathbf{A} = \mathbf{P}\mathbf{\Lambda}\mathbf{P}^{-1}\\) where \\(\mathbf{\Lambda}\\) is diagonal; thus we can say symmetric matrices are automatically diagonalizable which corresponds with the geometric intuition of what it means for a matrix and its transpose to be equivalent. Remember the transpose is a matrix that does the same stretches as \\(\mathbf{A}\\), but runs the isometries backwards.
 
 ### Iterative Solution
 
