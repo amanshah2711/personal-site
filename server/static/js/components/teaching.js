@@ -23,7 +23,11 @@ function Teaching(){
                       <div class="col-md-5">
                              <p> <b>Discussion:</b> Wed 6:30PM - 8:00PM PDT</p>
                              <p> <b>Lab:</b> Wed 9:30AM - 11:00AM PDT</p>
-                             <p><b><a href="https://docs.google.com/forms/d/e/1FAIpQLSe051PwRPnKIJ9zPWQhA-6VBW3PgnyunvbA6cT75uswLXWJPQ/viewform">Anonymous Feedback Form</a></b></p>
+                             <p> <b>Office Hours:</b> Wed 5:00PM - 6:00PM PDT</p>
+
+                             <p><b><a href="https://docs.google.com/forms/d/e/1FAIpQLSe051PwRPnKIJ9zPWQhA-6VBW3PgnyunvbA6cT75uswLXWJPQ/viewform">Anonymous Discussion Feedback Form</a></b></p>
+                             <p><b><a href="https://docs.google.com/forms/d/e/1FAIpQLSc0jWgEhHMV0HuSL7Zh7x0mU60Zc22m3mTawDy5dcch8bFNqg/viewform">Anonymous Lab Feedback Form</a></b></p>
+
                       </div>
                       <div class="col-md-5">
                           <ul>
