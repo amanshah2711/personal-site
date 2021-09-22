@@ -101,9 +101,9 @@ It turns out that this problem can actually be done using only iterative methods
 
 ```python
 def count_stairways(n):
-  curr, prev_1, prev_2 = 1, 1, 0
+  curr, prev_1 = 1, 1
   for i in range(n - 1):
-    curr, prev_1, prev_2 = curr + prev_1, curr, prev_1
+    curr, prev_1 = curr + prev_1, curr
   return curr
 ```
 
