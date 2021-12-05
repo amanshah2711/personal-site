@@ -29,7 +29,6 @@ def load_discussion():
     solutions = []
     names = os.listdir(os.path.join(app.static_folder, 'cs61a/slides'))
     slides = []
-    
     for file in slidesrc:
             if not file.startswith('.'):
                     slides.append(url_for('static', filename=os.path.join('cs61a/slides', file)))
@@ -51,7 +50,9 @@ def load_discussion():
             init_data.append({'num': i, 'title': title, 'slide': slide, 'worksheet': worksheet, 'wksht_name': name, 'solution': solution})
     return jsonify(init_data)
 
-slidesrc = ['disc_00.pdf', 'disc_01.pdf', 'disc_02.pdf', 'disc_03.pdf', 'disc_04.pdf', 'disc_05.pdf', 'disc06.pdf', 'disc_07.pdf', 'disc_08.pdf', 'disc_10.pdf']
+slidesrc = ['disc_00.pdf', 'disc_01.pdf', 'disc_02.pdf', 'disc_03.pdf',
+            'disc_04.pdf', 'disc_05.pdf', 'disc06.pdf', 'disc_07.pdf',
+            'disc_08.pdf', 'disc_10.pdf', 'disc12.pdf', '']
 titles=['Getting Started',
         'Control, Environment Diagrams',
         'Higher-Order Functions, Lambda Expressions',
