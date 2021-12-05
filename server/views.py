@@ -46,7 +46,7 @@ def load_discussion():
             if not file.startswith('.'):
                     solutions.append(url_for('static', filename=os.path.join('cs61a/solutions', file)))
                     solutions.append(file[:-4])
-    for i, (title, slide, worksheet, name, solution) in enumerate(zip(titles[:len(slides)], sorted(slides), sorted(worksheets), sorted(wksht_names), sorted(solutions))):
+    for i, (title, slide, worksheet, name, solution) in enumerate(zip(titles[:len(slides)], slides, sorted(worksheets), sorted(wksht_names), sorted(solutions))):
             init_data.append({'num': i, 'title': title, 'slide': slide, 'worksheet': worksheet, 'wksht_name': name, 'solution': solution})
     return jsonify(init_data)
 
