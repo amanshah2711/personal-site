@@ -52,7 +52,7 @@ def load_discussion():
 
 slidesrc = ['disc_00.pdf', 'disc_01.pdf', 'disc_02.pdf', 'disc_03.pdf',
             'disc_04.pdf', 'disc_05.pdf', 'disc06.pdf', 'disc_07.pdf',
-            'disc_08.pdf', 'disc_10.pdf', 'disc12.pdf', '']
+            'disc_08.pdf', 'disc_10.pdf', 'disc12.pdf']
 titles=['Getting Started',
         'Control, Environment Diagrams',
         'Higher-Order Functions, Lambda Expressions',
