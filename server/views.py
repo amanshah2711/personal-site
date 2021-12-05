@@ -63,6 +63,5 @@ titles=['Getting Started',
         'Object-Oriented Programming, String Representation',
         'Linked Lists, Trees',
         'Scheme, Scheme Lists',
-        'Interpreters',
         'Regular Expressions, BNF, SQL',
         'Final Review']
