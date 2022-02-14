@@ -4,8 +4,9 @@ function App() {
 				<BrowserRouter>
 	        <div>
 	          <Switch>
-	            <Route exact path="/" render={() => (<Teaching/>)}/>
-	            <Route exact path="/teaching" render={() => (<Teaching/>)} />
+	            <Route exact path="/" render={() => (<CSM/>)}/>
+	            <Route exact path="/CS61A" render={() => (<Teaching/>)} />
+	            <Route exact path="/EECS16B" render={() => (<CSM/>)} />
 							<Route exact path="/chess" render={() => (<ChessBoard/>)} />
 							<Route path="/pages/:id" render={(props) => (<Pages {...props}/>)} />
 	          </Switch>

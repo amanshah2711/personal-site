@@ -50,6 +50,43 @@ def load_discussion():
             init_data.append({'num': i, 'title': title, 'slide': slide, 'worksheet': worksheet, 'wksht_name': name, 'solution': solution})
     return jsonify(init_data)
 
+
+
+@app.route('/load_csm')
+def load_csm():
+    init_data = []
+    worksheets = []
+    wksht_names = []
+    solutions = []
+    names = os.listdir(os.path.join(app.static_folder, 'eecs16b/notes'))
+    notes = []
+    for file in notesrc:
+            if not file.startswith('.'):
+                    notes.append(url_for('static',
+                                          filename=os.path.join('eecs16b/notes', file)))
+
+    names = os.listdir(os.path.join(app.static_folder, 'eecs16b/worksheets'))
+
+    for file in names:
+            if not file.startswith('.'):
+                    worksheets.append(url_for('static',
+                                              filename=os.path.join('eecs16b/worksheets', file)))
+                    wksht_names.append(file[:-4])
+
+    names = os.listdir(os.path.join(app.static_folder, 'eecs16b/solutions'))
+
+    for file in names:
+            if not file.startswith('.'):
+                    solutions.append(url_for('static',
+                                             filename=os.path.join('eecs16b/solutions', file)))
+                    solutions.append(file[:-4])
+    for i, (title, note, worksheet, name, solution) in enumerate(zip(titles2[:len(notes)], notes, sorted(worksheets), sorted(wksht_names), sorted(solutions))):
+            init_data.append({'num': i, 'title': title, 'note': note, 'worksheet': worksheet, 'wksht_name': name, 'solution': solution})
+    return jsonify(init_data)
+
+titles2=['Differential Equations, RC Circuits, Change of Basis']
+notesrc = ['note_00.pdf']
+
 slidesrc = ['disc_00.pdf', 'disc_01.pdf', 'disc_02.pdf', 'disc_03.pdf',
             'disc_04.pdf', 'disc_05.pdf', 'disc06.pdf', 'disc_07.pdf',
             'disc_08.pdf', 'disc_10.pdf', 'disc12.pdf']
