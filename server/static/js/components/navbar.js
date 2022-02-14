@@ -11,14 +11,15 @@ function NavBar(){
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="navbar-nav">
                   <NavLink to='/' class="nav-link text-decoration-none" activeStyle={{
-    fontWeight: "bold",
-    color: "black"
-  }}>EECS16B</NavLink>
-                <div class="navbar-nav">
+                    fontWeight: "bold",
+                    color: "black"}}>
+                      EECS16B
+                    </NavLink>
                   <NavLink to='/CS61A' class="nav-link text-decoration-none" activeStyle={{
-    fontWeight: "bold",
-    color: "black"
-  }}>CS61A</NavLink>
+                    fontWeight: "bold",
+                    color: "black"}}>
+                      CS61A
+                  </NavLink>
 
                 </div>
               </div>
