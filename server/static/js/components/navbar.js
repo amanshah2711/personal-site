@@ -10,7 +10,7 @@ function NavBar(){
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="navbar-nav">
-                  <NavLink to='/' class="nav-link text-decoration-none" activeStyle={{
+                  <NavLink to='/EECS16B' class="nav-link text-decoration-none" activeStyle={{
                     fontWeight: "bold",
                     color: "black"}}>
                       EECS16B
