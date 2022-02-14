@@ -13,7 +13,12 @@ function NavBar(){
                   <NavLink to='/' class="nav-link text-decoration-none" activeStyle={{
     fontWeight: "bold",
     color: "black"
-  }}>Teaching</NavLink>
+  }}>EECS16B</NavLink>
+                <div class="navbar-nav">
+                  <NavLink to='/CS61A' class="nav-link text-decoration-none" activeStyle={{
+    fontWeight: "bold",
+    color: "black"
+  }}>CS61A</NavLink>
 
                 </div>
               </div>

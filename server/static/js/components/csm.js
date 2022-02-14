@@ -21,7 +21,8 @@ function CSM(){
                 </div>
                   <div class="row justify-content-md-center">
                       <div class="col-md-5">
-                             <p> <b>Discussion:</b> Mon 9:30AM - 11:00AM PDT</p>
+                             <p> <b>Section Time:</b> Mon 9:30AM - 11:00AM PDT</p>
+                             <p> <b>Section Location:</b> Kresge 110MC</p>
                              <p><b><a href="https://docs.google.com/forms/d/e/1FAIpQLSe051PwRPnKIJ9zPWQhA-6VBW3PgnyunvbA6cT75uswLXWJPQ/viewform">Anonymous Section Feedback Form</a></b></p>
                       </div>
                       <div class="col-md-5">
