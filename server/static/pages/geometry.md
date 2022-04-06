@@ -12,7 +12,7 @@ date: 2022-04-06
     <li>Rotations</li>
 </ol>
 
-For the following discussion let \\(\mathbf{I}\\) denote the identity matrix of appropriate dimension.
+For the following discussion let \\(\mathbf{I} \in \mathbf{R}^{n \times n}\\) denote the identity matrix.
 ### 1)Projections
 
 <figure align="center">
@@ -26,7 +26,7 @@ The important thing to understand for this discussion is projections onto a 1D s
     \beta = P_y(x)\frac{y}{\lVert y \rVert} = \frac{yy^T}{\lVert y \rVert^2} x
 \\]
 
-For convenience we will define the following matrix,
+For convenience we will define the following matrix \\(\mathbf{P}_{y} \in \mathbf{R}^{n \times n}\\),
 
 \\[
     \mathbf{P}_{y} = \frac{yy^T}{\lVert y \rVert^2}
@@ -42,7 +42,7 @@ For convenience we will define the following matrix,
   <figcaption> <b>Figure 2:</b> The matrix is reflecting the square around the \(x\)-axis</figcaption>
 </figure>
 
-Let's consider a matrix, \\(\mathbf{W}_{y}\\),[^2] that reflects vectors over a particular direction \\(y\\). If we define \\(z\\) as a vector orthogonal to \\(y\\), we can explicity write \\(\mathbf{W}\_{y}\\) as follows,
+Let's consider a matrix, \\(\mathbf{W}_{y} \in \mathbf{R}^{n \times n}\\),[^2] that reflects vectors over a particular direction \\(y \in \mathbf{R}^n\\). If we define \\(z \in \mathbf{R}^n \\) as a vector orthogonal to \\(y\\), we can explicity write \\(\mathbf{W}\_{y}\\) as follows,
 
 \\[
    \mathbf{W}\_{y} = \mathbf{I} - 2 \mathbf{P}_{z} 
@@ -56,7 +56,7 @@ Let's consider a matrix, \\(\mathbf{W}_{y}\\),[^2] that reflects vectors over a 
   <img src="/server/static/img/scaling.png" alt=":(" width="600" height="300"/>
   <figcaption> <b>Figure 3:</b> The matrix is having its area doubled because it is stretched to a rectangle on the \(x\)-axis</figcaption>
 </figure>
-Let's consider a matrix, \\( \mathbf{M}\_{y}^{\mu} \\), that scales vectors along a particular direction \\(y\\)[^3] by a factor \\(\mu\\). Then we can explicitly write \\( \mathbf{M}\_{y}^{\mu} \\) as,
+Let's consider a matrix, \\( \mathbf{M}\_{y}^{\mu} \in \mathbf{R}^{n \times n} \\), that scales vectors along a particular direction \\(y \in \mathbf{R}^n\\)[^3] by a factor \\(\mu \in \mathbf{R} \\). Then we can explicitly write \\( \mathbf{M}\_{y}^{\mu} \\) as,
 
 \\[
     \mathbf{M}\_{y}^{\mu} = \mathbf{I} + (\mu - 1) \mathbf{P}_{y}
@@ -72,13 +72,13 @@ Let's consider a matrix, \\( \mathbf{M}\_{y}^{\mu} \\), that scales vectors alon
   <figcaption> <b>Figure 4:</b> The matrix is performing the classic example of shearing the square</figcaption>
 </figure>
 
-Shearing is a little more difficult so first we shall define the matrix \\( \mathbf{S}_{s, t}^{\mu} \\), as follows
+Shearing is a little more difficult so first we shall define the matrix \\( \mathbf{S}_{s, t}^{\mu} \in \mathbf{R}^{n \times n}\\), as follows
 
 \\[
     \mathbf{S}_{s, t}^{\mu} = \mathbf{I} + \mu st^T
 \\]
 
-Let \\(x, t \in \mathbf{R}^n\\) be a given vector where \\(x\\) is the input vector we want to shear. Consider the line( or plane) consisting of vectors perpendicular to \\(t\\) and choose \\(s \in \mathbf{R}^n\\) to be a vector in this line(or plane) perpendicular to \\(t\\). Shift this line(or plane) perpendicular to \\(t\\) until it intersects \\(x\\). Now add a multiple of \\(s\\) to \\(x\\) that is proportional to both \\(\mu\\) and the distance between the shifted line(or plane) and the one through the origin. This is more complicated in nature although does capture the notion of shearing. *Highly Recommended: Draw pictures and examples*
+Let \\(x, t \in \mathbf{R}^n\\) be given vectors where \\(x\\) is the input vector we want to shear. Consider the line( or plane) consisting of vectors perpendicular to \\(t\\) and choose \\(s \in \mathbf{R}^n\\) to be a vector in this line(or plane) perpendicular to \\(t\\). Shift this line(or plane) perpendicular to \\(t\\) until it intersects \\(x\\). Now add a multiple of \\(s\\) to \\(x\\) that is proportional to both \\(\mu \in \mathbf{R}\\) and the distance between the shifted line(or plane) and the one through the origin. This is more complicated in nature although does capture the notion of shearing. *Highly Recommended: Draw pictures and examples*
 
 **Exercise:** You should verify that if you choose, \\(\mu = 1, s = \begin{bmatrix} 1 \\\\ 0 \end{bmatrix},\\), and \\(t = \begin{bmatrix} 0 \\\\ 1 \end{bmatrix}\\) that you get the shearing matrix \\(\mathbf{S}_{s, t}^{\mu} = \begin{bmatrix}1 & 1 \\\\ 0 & 1 \end{bmatrix}\\).
 
@@ -113,7 +113,7 @@ The punchline of this is that we can now say any invertible matrix is equivalent
   <figcaption> <b>Figure 5:</b> The matrix is rotating the square by \(\frac{\pi}{4}\)</figcaption>
 </figure>
 
-Rotations are another important matrix operation, although are not as easily to write down as the above operations. In higher dimensions, people generally call a matrix \\(\mathbf{A}\\) satisfying,
+Rotations are another important matrix operation, although are not as easily to write down as the above operations. In higher dimensions, people generally call a matrix \\(\mathbf{A} \in \mathbf{R}^{n \times n} \\) satisfying,
 \\[
     \langle x, x \rangle = \langle \mathbf{A}x , \mathbf{A}x \rangle
 \\]
