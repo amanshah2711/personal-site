@@ -32,6 +32,26 @@ For convenience we will define the following matrix \\(\mathbf{P}_{y} \in \mathb
     \mathbf{P}_{y} = \frac{yy^T}{\lVert y \rVert^2}
 \\]
 
+It turns out a defining characteristic of a projection is that applying the projection operator twice is the same as applying it once[^2]. That is a projection should intuitively satisfy,
+
+\\[
+    \mathbf{P}\_{y}^2 = \mathbf{P}_{y}
+\\]
+It turns out this is not that difficult to prove. Try it as an exercise, but the proof is below.
+<details style="background-color:aliceblue;padding:10px;">
+<summary>Proof</summary>
+We see the following,
+\[
+    \begin{align}
+    \mathbf{P}_{y} \mathbf{P}_{y} =& \frac{yy^T}{\lVert y \rVert^2} \frac{yy^T}{\lVert y \rVert^2} \\\\
+                                =&  \frac{y^Ty}{\lVert y \rVert^2} \frac{yy^T}{\lVert y \rVert^2}  \\\\
+                                =& \frac{\lVert y \rVert^2}{\lVert y \rVert^2} \frac{yy^T}{\lVert y \rVert^2} \\\\
+                                =& \frac{yy^T}{\lVert y \rVert^2} \\\\
+                                =& \mathbf{P}_{y}
+    \end{align}
+\]
+    Thus we see that applying a projection operator twice does is the same as applying it once. \(\square\)
+</details>
 **Exercise:**You should verify that if you choose \\(y = \begin{bmatrix} 1 \\\\ 0 \end{bmatrix}\\), that you get the expected matrix that corresponds to projecting onto the \\(x\\)-axis.
 
 
@@ -42,12 +62,27 @@ For convenience we will define the following matrix \\(\mathbf{P}_{y} \in \mathb
   <figcaption> <b>Figure 2:</b> The matrix is reflecting the square around the \(x\)-axis</figcaption>
 </figure>
 
-Let's consider a matrix, \\(\mathbf{W}_{y} \in \mathbf{R}^{n \times n}\\),[^2] that reflects vectors over a particular direction \\(y \in \mathbf{R}^n\\). If we define \\(z \in \mathbf{R}^n \\) as a vector orthogonal to \\(y\\), we can explicity write \\(\mathbf{W}\_{y}\\) as follows,
+Let's consider a matrix, \\(\mathbf{W}_{y} \in \mathbf{R}^{n \times n}\\),[^3] that reflects vectors over a particular direction \\(y \in \mathbf{R}^n\\)[^4]. If we define \\(z \in \mathbf{R}^n \\) as a vector orthogonal to \\(y\\), we can explicity write \\(\mathbf{W}\_{y}\\) as follows,
 
 \\[
    \mathbf{W}\_{y} = \mathbf{I} - 2 \mathbf{P}_{z} 
 \\]
 
+A geometric thought one can verify is that if one runs the same reflection operation twice, they should end up with the identity operation. That is a reflection is its own inverse. Again try this as an exercise, but the proof is below.
+
+<details style="background-color:aliceblue;padding:10px;">
+<summary>Proof</summary>
+We see the following,
+\[
+    \begin{align}
+    \mathbf{W}_{y} \mathbf{W}_{y} =&(\mathbf{I} - 2 \mathbf{P}_{z})(\mathbf{I} - 2 \mathbf{P}_{z}) \\\\
+     =& \mathbf{I} - 4\mathbf{P}_{z}  + 4 \mathbf{P}_z^2 \\\\
+     =& \mathbf{I} - 4\mathbf{P}_{z}  + 4 \mathbf{P}_z \\\\
+     =& \mathbf{I} 
+    \end{align}
+\]
+    Thus we see that a reflection is its own inverse which coincides with our intuition. \(\square\)
+</details>
 **Exercise:** You should verify that if you choose \\(y = \begin{bmatrix} 1 \\\\ 0 \end{bmatrix}\\), that you get the expected matrix that corresponds to reflecting across the \\(x\\)-axis. *Note that in this example calculating \\(z\\) should be trivial.*
 
 ### 3)Scaling(or Dilations)
@@ -56,7 +91,7 @@ Let's consider a matrix, \\(\mathbf{W}_{y} \in \mathbf{R}^{n \times n}\\),[^2] t
   <img src="/server/static/img/scaling.png" alt=":(" width="600" height="300"/>
   <figcaption> <b>Figure 3:</b> The matrix stretches the \(x\)-axis and consequently turns the square into a rectangle with twice the area.</figcaption>
 </figure>
-Let's consider a matrix, \\( \mathbf{M}\_{y}^{\mu} \in \mathbf{R}^{n \times n} \\), that scales vectors along a particular direction \\(y \in \mathbf{R}^n\\)[^3] by a factor \\(\mu \in \mathbf{R} \\). Then we can explicitly write \\( \mathbf{M}\_{y}^{\mu} \\) as,
+Let's consider a matrix, \\( \mathbf{M}\_{y}^{\mu} \in \mathbf{R}^{n \times n} \\), that scales vectors along a particular direction \\(y \in \mathbf{R}^n\\) by a factor \\(\mu \in \mathbf{R} \\). Then we can explicitly write \\( \mathbf{M}\_{y}^{\mu} \\) as,
 
 \\[
     \mathbf{M}\_{y}^{\mu} = \mathbf{I} + (\mu - 1) \mathbf{P}_{y}
@@ -126,5 +161,6 @@ Rotations are another important matrix operation, although are not as easily to 
 an isometry. The matrix \\(\mathbf{A}\\) will have orthonormal columns if and only if it is an isometry. As far as terminology if \\(\mathbf{A}\\) is an isometry then it must have \\(\text{det}\mathbf{A} = \pm 1 \\). If the determinant is \\(+1\\) then in higher dimensions this is referred to as a proper rotation, and if the determinant is \\(-1\\) then it is called a reflection. This generalizes what occurs in 2D and 3D.
 
 [^1]: This note is largely inspired by a [note](https://people.eecs.berkeley.edu/~wkahan/MathH110/geo.pdf) written by UC Berkeley professor William Kahan who actually won the Turing Award! Also, we have some notation and terminology differences from Kahan's note so be careful if cross-referencing.
-[^2]: In other contexts you will see this matrix referred to as an **elementary orthogonal reflection**, or **Householder reflection**.
-[^3]: In one dimension we can reflect over a dimension, in two dimensions we reflect over a plane, and in \\(n\\) dimensions we reflect over a surface of dimension \\(n-1\\) that is often referred to as a **hyperplane**. Critically a hyperplane is characterized by the vector normal to it. Essentially what is referred to as \\(z\\) is usually given.
+[^2]: This property is sometimes referred to as **idempotent**
+[^3]: In other contexts you will see this matrix referred to as an **elementary orthogonal reflection**, or **Householder reflection**.
+[^4]: In one dimension we can reflect over a dimension, in two dimensions we reflect over a plane, and in \\(n\\) dimensions we reflect over a surface of dimension \\(n-1\\) that is often referred to as a **hyperplane**. Critically a hyperplane is characterized by the vector normal to it. Essentially what is referred to as \\(z\\) is usually given.
