@@ -64,7 +64,10 @@ function CSM(){
                       <hr class="col-md-11"></hr>
                       <div class="col-md-10">
                           <h3  style={{color:"#047BFE"}}>Additional Resources</h3>
-                            <p>Things may be added here in the future.</p>
+
+                          <ul class="list-group list-group-flush">
+                            <li class="list-group-item "> <Link to='/pages/projections' class="nav-link">Understanding Projections</Link></li>
+                          </ul>
                       </div>
                   </div>
             </div>

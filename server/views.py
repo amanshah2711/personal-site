@@ -17,6 +17,7 @@ def index(*args, **kwargs):
 def page(path):
     # 'path is the filename of a page, without the file extension'
     # e.g. "first-post"
+    print("This is the path dummy", path)
     page = pages.get_or_404(path)
 
     return render_template('page.html', page=page)

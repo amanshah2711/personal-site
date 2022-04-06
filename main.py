@@ -4,6 +4,7 @@ import os
 from datetime import datetime
 manager = Manager(app)
 
+pagesdir = os.path.join('server', 'static', 'pages')
 @manager.command
 def new_post(title):
     """

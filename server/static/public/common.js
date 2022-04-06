@@ -1,5 +1,232 @@
 "use strict";
 
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+function CSM() {
+    var _ReactRouterDOM = ReactRouterDOM,
+        Link = _ReactRouterDOM.Link;
+
+    var _React$useState = React.useState(null),
+        _React$useState2 = _slicedToArray(_React$useState, 2),
+        rows = _React$useState2[0],
+        setRows = _React$useState2[1];
+
+    React.useEffect(function () {
+        fetch('/load_csm').then(function (response) {
+            return response.json();
+        }).then(function (data) {
+            setRows(data);
+        });
+    }, []);
+    return React.createElement(
+        "div",
+        { "class": "container" },
+        React.createElement(NavBar, null),
+        React.createElement(
+            "div",
+            { "class": "row justify-content-md-center" },
+            React.createElement("hr", { "class": "col-md-11" }),
+            React.createElement(
+                "div",
+                { "class": "col-md-10" },
+                React.createElement(
+                    "h3",
+                    { style: { color: "#047BFE" } },
+                    "EECS16B Spring 2022"
+                )
+            )
+        ),
+        React.createElement(
+            "div",
+            { "class": "row justify-content-md-center" },
+            React.createElement(
+                "div",
+                { "class": "col-md-5" },
+                React.createElement(
+                    "p",
+                    null,
+                    " ",
+                    React.createElement(
+                        "b",
+                        null,
+                        "Section Time:"
+                    ),
+                    " Mon 9:30AM - 11:00AM PDT"
+                ),
+                React.createElement(
+                    "p",
+                    null,
+                    " ",
+                    React.createElement(
+                        "b",
+                        null,
+                        "Section Location:"
+                    ),
+                    " Kresge 110MC"
+                ),
+                React.createElement(
+                    "p",
+                    null,
+                    React.createElement(
+                        "b",
+                        null,
+                        React.createElement(
+                            "a",
+                            { href: "https://docs.google.com/forms/d/e/1FAIpQLSe051PwRPnKIJ9zPWQhA-6VBW3PgnyunvbA6cT75uswLXWJPQ/viewform" },
+                            "Anonymous Section Feedback Form"
+                        )
+                    )
+                )
+            ),
+            React.createElement(
+                "div",
+                { "class": "col-md-5" },
+                React.createElement(
+                    "ul",
+                    null,
+                    React.createElement(
+                        "li",
+                        null,
+                        React.createElement(
+                            "p",
+                            null,
+                            " Feel free to contact me at amanshah2711@berkeley.edu with any questions about eecs16b, math, life at Berkeley, or anything else."
+                        )
+                    ),
+                    React.createElement(
+                        "li",
+                        null,
+                        "Additional resources or helpful links located at the bottom of the page."
+                    )
+                )
+            )
+        ),
+        React.createElement(
+            "div",
+            { "class": "row justify-content-md-center" },
+            React.createElement("hr", { "class": "col-md-11" }),
+            React.createElement(
+                "div",
+                { "class": "col-md-10" },
+                React.createElement(
+                    "h3",
+                    { style: { color: "#047BFE" } },
+                    "Schedule"
+                ),
+                React.createElement(
+                    "table",
+                    { "class": "table table-striped table-borderless table-hover" },
+                    React.createElement(
+                        "thead",
+                        null,
+                        React.createElement(
+                            "tr",
+                            null,
+                            React.createElement(
+                                "th",
+                                null,
+                                "#"
+                            ),
+                            React.createElement(
+                                "th",
+                                null,
+                                "Topic"
+                            ),
+                            React.createElement(
+                                "th",
+                                null,
+                                "Worksheet"
+                            )
+                        )
+                    ),
+                    React.createElement(
+                        "tbody",
+                        null,
+                        rows && rows.map(function (row) {
+                            return React.createElement(
+                                "tr",
+                                null,
+                                React.createElement(
+                                    "td",
+                                    null,
+                                    row.num
+                                ),
+                                React.createElement(
+                                    "td",
+                                    null,
+                                    row.title,
+                                    React.createElement("br", null),
+                                    React.createElement(
+                                        "span",
+                                        { "class": "badge bg-primary" },
+                                        React.createElement(
+                                            "a",
+                                            { "class": "text-white text-decoration-none", href: row.note },
+                                            "Notes"
+                                        )
+                                    )
+                                ),
+                                React.createElement(
+                                    "td",
+                                    null,
+                                    React.createElement(
+                                        "a",
+                                        { "class": "text-decoration-none", href: row.worksheet },
+                                        row.wksht_name
+                                    ),
+                                    " ",
+                                    React.createElement("br", null),
+                                    " ",
+                                    React.createElement(
+                                        "span",
+                                        { "class": "badge bg-primary" },
+                                        React.createElement(
+                                            "a",
+                                            { "class": "text-white text-decoration-none", href: row.solution },
+                                            "Solution"
+                                        )
+                                    )
+                                )
+                            );
+                        })
+                    )
+                )
+            )
+        ),
+        React.createElement(
+            "div",
+            { "class": "row justify-content-md-center" },
+            React.createElement("hr", { "class": "col-md-11" }),
+            React.createElement(
+                "div",
+                { "class": "col-md-10" },
+                React.createElement(
+                    "h3",
+                    { style: { color: "#047BFE" } },
+                    "Additional Resources"
+                ),
+                React.createElement(
+                    "ul",
+                    { "class": "list-group list-group-flush" },
+                    React.createElement(
+                        "li",
+                        { "class": "list-group-item " },
+                        " ",
+                        React.createElement(
+                            Link,
+                            { to: "/pages/projections", "class": "nav-link" },
+                            "Understanding Projections"
+                        )
+                    )
+                )
+            )
+        )
+    );
+}
+
+
+"use strict";
+
 function NavBar() {
   var _ReactRouterDOM = ReactRouterDOM,
       NavLink = _ReactRouterDOM.NavLink,
@@ -32,11 +259,17 @@ function NavBar() {
             { "class": "navbar-nav" },
             React.createElement(
               NavLink,
-              { to: "/", "class": "nav-link text-decoration-none", activeStyle: {
+              { to: "/EECS16B", "class": "nav-link text-decoration-none", activeStyle: {
                   fontWeight: "bold",
-                  color: "black"
-                } },
-              "Teaching"
+                  color: "black" } },
+              "EECS16B"
+            ),
+            React.createElement(
+              NavLink,
+              { to: "/CS61A", "class": "nav-link text-decoration-none", activeStyle: {
+                  fontWeight: "bold",
+                  color: "black" } },
+              "CS61A"
             )
           )
         )
@@ -75,6 +308,41 @@ function Board(_ref) {
         "div",
         { className: "container" },
         board
+    );
+}
+
+
+'use strict';
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+function Coordinate(row, col) {
+    this.row = row;
+    this.col = col;
+}
+Coordinate.prototype.toString = function CoordinateToString() {
+    return this.row + ' ' + this.col;
+};
+
+function Square(props) {
+    var _React$useState = React.useState(null),
+        _React$useState2 = _slicedToArray(_React$useState, 2),
+        piece = _React$useState2[0],
+        setPiece = _React$useState2[1];
+
+    var onClick = function onClick(e) {
+        return props.callback(props.coordinate);
+    };
+    var divStyle = {
+        width: '100\%',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        paddingBottom: '100\%'
+    };
+    return React.createElement(
+        'div',
+        { className: 'col-1 square', style: props.styler, onClick: onClick },
+        React.createElement('img', { src: props.piece, style: divStyle, alt: '' })
     );
 }
 
@@ -148,13 +416,37 @@ function Teaching() {
                 React.createElement(
                     "p",
                     null,
+                    " ",
+                    React.createElement(
+                        "b",
+                        null,
+                        "Office Hours:"
+                    ),
+                    " Wed 5:00PM - 6:00PM PDT"
+                ),
+                React.createElement(
+                    "p",
+                    null,
                     React.createElement(
                         "b",
                         null,
                         React.createElement(
                             "a",
                             { href: "https://docs.google.com/forms/d/e/1FAIpQLSe051PwRPnKIJ9zPWQhA-6VBW3PgnyunvbA6cT75uswLXWJPQ/viewform" },
-                            "Anonymous Feedback Form"
+                            "Anonymous Discussion Feedback Form"
+                        )
+                    )
+                ),
+                React.createElement(
+                    "p",
+                    null,
+                    React.createElement(
+                        "b",
+                        null,
+                        React.createElement(
+                            "a",
+                            { href: "https://docs.google.com/forms/d/e/1FAIpQLSc0jWgEhHMV0HuSL7Zh7x0mU60Zc22m3mTawDy5dcch8bFNqg/viewform" },
+                            "Anonymous Lab Feedback Form"
                         )
                     )
                 )
@@ -306,41 +598,6 @@ function Teaching() {
 }
 
 
-'use strict';
-
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-
-function Coordinate(row, col) {
-    this.row = row;
-    this.col = col;
-}
-Coordinate.prototype.toString = function CoordinateToString() {
-    return this.row + ' ' + this.col;
-};
-
-function Square(props) {
-    var _React$useState = React.useState(null),
-        _React$useState2 = _slicedToArray(_React$useState, 2),
-        piece = _React$useState2[0],
-        setPiece = _React$useState2[1];
-
-    var onClick = function onClick(e) {
-        return props.callback(props.coordinate);
-    };
-    var divStyle = {
-        width: '100\%',
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        paddingBottom: '100\%'
-    };
-    return React.createElement(
-        'div',
-        { className: 'col-1 square', style: props.styler, onClick: onClick },
-        React.createElement('img', { src: props.piece, style: divStyle, alt: '' })
-    );
-}
-
-
 "use strict";
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
@@ -435,7 +692,7 @@ function Pages(_ref) {
     var match = _ref.match;
 
     var userID = +match.params.id;
-    console.log(userID);
+    console.log(match.url);
 
     var _React$useState = React.useState(null),
         _React$useState2 = _slicedToArray(_React$useState, 2),
@@ -446,7 +703,7 @@ function Pages(_ref) {
         MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
     }
     React.useEffect(function () {
-        fetch('/pages/count_stairways').then(function (response) {
+        fetch(match.url).then(function (response) {
             return response.text();
         }).then(function (data) {
             var elem = document.getElementById("holder");
@@ -481,10 +738,13 @@ function App() {
 												Switch,
 												null,
 												React.createElement(Route, { exact: true, path: "/", render: function render() {
+																		return React.createElement(CSM, null);
+															} }),
+												React.createElement(Route, { exact: true, path: "/CS61A", render: function render() {
 																		return React.createElement(Teaching, null);
 															} }),
-												React.createElement(Route, { exact: true, path: "/teaching", render: function render() {
-																		return React.createElement(Teaching, null);
+												React.createElement(Route, { exact: true, path: "/EECS16B", render: function render() {
+																		return React.createElement(CSM, null);
 															} }),
 												React.createElement(Route, { exact: true, path: "/chess", render: function render() {
 																		return React.createElement(ChessBoard, null);
