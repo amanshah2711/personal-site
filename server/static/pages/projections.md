@@ -154,4 +154,4 @@ Then from here we simply say that \\(u_i = \frac{\tilde{u_i}}{\lVert \tilde{u_i}
 
 [^1]: In many engineering and physics contexts the term *superposition* is used instead of additivity. 
 [^2]: This proof is fine to omit on first reading.
-[^3]: This fact that a linear transformation can be identified by a vector is called *duality*. This turns out to be important in mathematics.
+[^3]: This fact that a linear transformation can be identified by a vector is called *duality*. Though innocuous this is a big deal and something you should become familiar with if you are interested in optimization, linear algebra, or further calculus.

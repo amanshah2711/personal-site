@@ -54,7 +54,7 @@ Let's consider a matrix, \\(\mathbf{W}_{y} \in \mathbf{R}^{n \times n}\\),[^2] t
 
 <figure align="center">
   <img src="/server/static/img/scaling.png" alt=":(" width="600" height="300"/>
-  <figcaption> <b>Figure 3:</b> The matrix is having its area doubled because it is stretched to a rectangle on the \(x\)-axis</figcaption>
+  <figcaption> <b>Figure 3:</b> The matrix stretches the \(x\)-axis and consequently turns the square into a rectangle with twice the area.</figcaption>
 </figure>
 Let's consider a matrix, \\( \mathbf{M}\_{y}^{\mu} \in \mathbf{R}^{n \times n} \\), that scales vectors along a particular direction \\(y \in \mathbf{R}^n\\)[^3] by a factor \\(\mu \in \mathbf{R} \\). Then we can explicitly write \\( \mathbf{M}\_{y}^{\mu} \\) as,
 
@@ -110,7 +110,7 @@ Now with our operations above we can state these operations in geometric terms,
 
 What this means is that you can write any one of the row reduction operations that you are familiar with as one of the three types of matrices listed above. Try a couple examples in the \\( 2 \times 2 \\) case for clarity. 
 
-The punchline of this is that we can now say any invertible matrix is equivalent to a product of reflections, non-zero scaling, and shearing.
+The punchline of this is that we can now say any invertible matrix is equivalent to a product of reflections, non-zero scaling, and shearing!
 
 ### 6)Rotations
 
