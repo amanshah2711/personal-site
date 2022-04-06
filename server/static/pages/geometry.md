@@ -80,6 +80,12 @@ Shearing is a little more difficult so first we shall define the matrix \\( \mat
 
 Let \\(x, t \in \mathbf{R}^n\\) be given vectors where \\(x\\) is the input vector we want to shear. Consider the line( or plane) consisting of vectors perpendicular to \\(t\\) and choose \\(s \in \mathbf{R}^n\\) to be a vector in this line(or plane) perpendicular to \\(t\\). Shift this line(or plane) perpendicular to \\(t\\) until it intersects \\(x\\). Now add a multiple of \\(s\\) to \\(x\\) that is proportional to both \\(\mu \in \mathbf{R}\\) and the distance between the shifted line(or plane) and the one through the origin. This is more complicated in nature although does capture the notion of shearing. *Highly Recommended: Draw pictures and examples*
 
+A helpful quote from Kahan's notes[^1], 
+> A good way to visualize the effect of an elementary shear is to imagine a deck of playing cards stacked straight so that the stack’s sides look like rectangles. Shearing the deck slides the cards, keeping their respective edges parallel, in such a way that the stack’s sides remain
+parallelograms. The bottom card stays fixed in the plane ...
+
+In our notation the bottom card that remains fixed corresponds to \\(s\\).
+
 **Exercise:** You should verify that if you choose, \\(\mu = 1, s = \begin{bmatrix} 1 \\\\ 0 \end{bmatrix},\\), and \\(t = \begin{bmatrix} 0 \\\\ 1 \end{bmatrix}\\) that you get the shearing matrix \\(\mathbf{S}_{s, t}^{\mu} = \begin{bmatrix}1 & 1 \\\\ 0 & 1 \end{bmatrix}\\).
 
 
