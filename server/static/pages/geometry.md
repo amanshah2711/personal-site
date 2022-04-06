@@ -116,7 +116,7 @@ Rotations are another important matrix operation, although are not as easily to 
 \\[
     \langle x, x \rangle = \langle \mathbf{A}x , \mathbf{A}x \rangle
 \\]
-an isometry. The matrix \\(A\\) will have orthonormal columns if and only if it is an isometry. As far as terminology if \\(\mathbf{A}\\) is an isometry then it must have \\(\detA = \pm 1 \\). If the determinant is \\(+1\\) then in higher dimensions this is referred to as a proper rotation, and if the determinant is \\(-1\\) then it is called a reflection. This generalizes on what occurs in 2D and 3D.
+an isometry. The matrix \\(A\\) will have orthonormal columns if and only if it is an isometry. As far as terminology if \\(\mathbf{A}\\) is an isometry then it must have \\(\text{det}\mathbf{A} = \pm 1 \\). If the determinant is \\(+1\\) then in higher dimensions this is referred to as a proper rotation, and if the determinant is \\(-1\\) then it is called a reflection. This generalizes what occurs in 2D and 3D.
 
 [^1]: This note is largely inspired by a [note](https://people.eecs.berkeley.edu/~wkahan/MathH110/geo.pdf) written by UC Berkeley professor William Kahan who actually won the Turing Award! Also, we have some notation and terminology differences from Kahan's note so be careful if cross-referencing.
 [^2]: In other contexts you will see this matrix referred to as an **elementary orthogonal reflection**, or **Householder reflection**.
