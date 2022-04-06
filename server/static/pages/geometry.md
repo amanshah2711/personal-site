@@ -16,7 +16,7 @@ date: 2022-04-06
 
 <figure align="center">
   <img src="/server/static/img/projection_geo.png" alt=":(" width="600" height="300"/>
-  <figcaption> <b>Figure 1:</b> The matrix is projecting the square onto the \\(x\\)-axis.</figcaption>
+  <figcaption> <b>Figure 1:</b> The matrix is projecting the square onto the \(x\)-axis</figcaption>
 </figure>
 
 The important thing to understand for this discussion is projections onto a 1D subspace(a line through the origin). This is discussed in sufficient depth [here](/pages/projections). This is the building block of other transformations so please do read it closely. The essential takeaway from this should be given \\(x,y \in \mathbf{R}^n\\) then we can say the projection of \\(x\\) onto the span of \\(y\\) is some vector \\(\beta \in \mathbf{R}^n \\) of the form,
@@ -38,7 +38,7 @@ For convenience we will define the following matrix,
 
 <figure align="center">
   <img src="/server/static/img/reflection.png" alt=":(" width="600" height="300"/>
-  <figcaption> <b>Figure 2:</b> The matrix is reflecting the square around the \\(x\\)-axis</figcaption>
+  <figcaption> <b>Figure 2:</b> The matrix is reflecting the square around the \(x\)-axis</figcaption>
 </figure>
 
 Let's consider a matrix, \\(\mathbf{W}_{y}\\),[^2] that reflects vectors over a particular direction \\(y\\). If we define \\(z\\) as a vector orthogonal to \\(y\\), we can explicity write \\(\mathbf{W}\_{y}\\) as follows,
@@ -53,7 +53,7 @@ Let's consider a matrix, \\(\mathbf{W}_{y}\\),[^2] that reflects vectors over a 
 
 <figure align="center">
   <img src="/server/static/img/scaling.png" alt=":(" width="600" height="300"/>
-  <figcaption> <b>Figure 3:</b> The matrix is having its area doubled because it is stretched to a rectangle on the \\(x\\)-axis.</figcaption>
+  <figcaption> <b>Figure 3:</b> The matrix is having its area doubled because it is stretched to a rectangle on the \(x\)-axis</figcaption>
 </figure>
 Let's consider a matrix, \\( \mathbf{M}\_{y}^{\mu} \\), that scales vectors along a particular direction \\(y\\)[^3] by a factor \\(\mu\\). Then we can explicitly write \\( \mathbf{M}\_{y}^{\mu} \\) as,
 
@@ -68,7 +68,7 @@ Let's consider a matrix, \\( \mathbf{M}\_{y}^{\mu} \\), that scales vectors alon
 
 <figure align="center">
   <img src="/server/static/img/shear.png" alt=":(" width="600" height="300"/>
-  <figcaption> <b>Figure 4:</b> The matrix is performing the classic example of shearing the square.</figcaption>
+  <figcaption> <b>Figure 4:</b> The matrix is performing the classic example of shearing the square</figcaption>
 </figure>
 
 Shearing is a little more difficult so first we shall define the matrix \\( \mathbf{S}_{s, t}^{\mu} \\), as follows
@@ -82,13 +82,41 @@ Let \\(x, t \in mathbf{R}^n\\) be a given vector where \\(x\\) is the input vect
 **Exercise:** You should verify that if you choose, \\(\mu = 1, s = \begin{bmatrix} 1 \\\\ 0 \end{bmatrix},\\), and \\(t = \begin{bmatrix} 0 \\\\ 1 \end{bmatrix}\\) that you get the shearing matrix \\(\mathbf{S}_{s, t}^{\mu} = \begin{bmatrix}1 & 1 \\\\ 0 & 1 \end{bmatrix}\\).
 
 
-### 5)Important Aside: Gaussian Elimination
+### 5)Important Aside: Gaussian elimination
+
+Gaussian elimination, in my experience, was something purely algebraic without much geometric intuition. However with the above transformations we can fully rephrase the steps of Gaussian elimination geometrically. Note in Gaussian elimination we are allowed three operations.
+#### Gaussian elimination operations
+<ol>
+    <li>Swap two rows</li>
+    <li>Multiply a row by a non-zero constant</li>
+    <li>Add a multiple of one row to another</li>
+</ol>
+
+Now with our operations above we can state these operations in geometric terms,
+
+#### Gaussian elimination operations(geometric equivalent) 
+<ol>
+    <li>Reflecting over appropriate choice of hyperplane</li>
+    <li>Scaling(or dilations) over appropriate choice of scaling factor and direction</li>
+    <li>Shearing operation with appropriate choice of shear direction and multiple</li>
+</ol>
+
+What this means is that you can write any one of the row reduction operations that you are familiar with as one of the three types of matrices listed above. Try a couple examples in the \\( 2 \times 2 \\) case for clarity. 
+
+The punchline of this is that we can now say any invertible matrix is equivalent to a product of reflections, non-zero scaling, and shearing.
+
 ### 6)Rotations
 
 <figure align="center">
   <img src="/server/static/img/rotation.png" alt=":(" width="600" height="300"/>
-  <figcaption> <b>Figure 4:</b> The square is doubling in area after each matrix is applied.</figcaption>
+  <figcaption> <b>Figure 5:</b> The matrix is rotating the square by \(\frac{\pi}{4}\)</figcaption>
 </figure>
+
+Rotations are another important matrix operation, although are not as easily to write down as the above operations. In higher dimensions, people generally call a matrix \\(\mathbf{A}\\) satisfying,
+\\[
+    \langle x, x \rangle = \langle \mathbf{A}x , \mathbf{A}x \rangle
+\\]
+an isometry. The matrix \\(A\\) will have orthonormal columns if and only if it is an isometry. As far as terminology if \\(\mathbf{A}\\) is an isometry then it must have \\(\detA = \pm 1 \\). If the determinant is \\(+1\\) then in higher dimensions this is referred to as a proper rotation, and if the determinant is \\(-1\\) then it is called a reflection. This generalizes on what occurs in 2D and 3D.
 
 [^1]: This note is largely inspired by a [note](https://people.eecs.berkeley.edu/~wkahan/MathH110/geo.pdf) written by UC Berkeley professor William Kahan who actually won the Turing Award! Also, we have some notation and terminology differences from Kahan's note so be careful if cross-referencing.
 [^2]: In other contexts you will see this matrix referred to as an **elementary orthogonal reflection**, or **Householder reflection**.
