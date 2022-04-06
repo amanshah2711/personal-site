@@ -155,16 +155,7 @@ function CSM() {
                                     "td",
                                     null,
                                     row.title,
-                                    React.createElement("br", null),
-                                    React.createElement(
-                                        "span",
-                                        { "class": "badge bg-primary" },
-                                        React.createElement(
-                                            "a",
-                                            { "class": "text-white text-decoration-none", href: row.note },
-                                            "Notes"
-                                        )
-                                    )
+                                    React.createElement("br", null)
                                 ),
                                 React.createElement(
                                     "td",
@@ -236,6 +227,16 @@ function CSM() {
                             Link,
                             { to: "/pages/geometry", "class": "nav-link" },
                             "Geometry of Linear Transformations"
+                        )
+                    ),
+                    React.createElement(
+                        "li",
+                        { "class": "list-group-item " },
+                        " ",
+                        React.createElement(
+                            "a",
+                            { href: "https://www.youtube.com/playlist?app=desktop&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab", "class": "nav-link" },
+                            "Essence of Linear Algebra:3Blue1Brown"
                         )
                     )
                 )

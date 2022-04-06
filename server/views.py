@@ -60,11 +60,6 @@ def load_csm():
     wksht_names = []
     solutions = []
     names = os.listdir(os.path.join(app.static_folder, 'eecs16b/notes'))
-    notes = []
-    for file in notesrc:
-            if not file.startswith('.'):
-                    notes.append(url_for('static',
-                                          filename=os.path.join('eecs16b/notes', file)))
 
     names = os.listdir(os.path.join(app.static_folder, 'eecs16b/worksheets'))
 
@@ -81,12 +76,20 @@ def load_csm():
                     solutions.append(url_for('static',
                                              filename=os.path.join('eecs16b/solutions', file)))
                     solutions.append(file[:-4])
-    for i, (title, note, worksheet, name, solution) in enumerate(zip(titles2[:len(notes)], notes, sorted(worksheets), sorted(wksht_names), sorted(solutions))):
-            init_data.append({'num': i, 'title': title, 'note': note, 'worksheet': worksheet, 'wksht_name': name, 'solution': solution})
+    for i, (title, worksheet, name, solution) in enumerate(zip(titles2[:len(worksheets)], sorted(worksheets), sorted(wksht_names), sorted(solutions))):
+            init_data.append({'num': i, 'title': title,  'worksheet': worksheet, 'wksht_name': name, 'solution': solution})
     return jsonify(init_data)
 
-titles2=['Differential Equations, RC Circuits, Change of Basis']
-notesrc = ['note_00.pdf']
+titles2=[
+        'Differential Equations, RC Circuits, Change of Basis',
+        'Change of Basis, Inductors, and Complex Numbers',
+        'Phasors, Impedance, RLC Circuits, and Transfer Functions',
+        'Transfer Functions, Filters, and Bode Plots',
+        'Systems, BIBO Stability, and System ID',
+        'Controllability and Feedback',
+        'Gram-Schmidt',
+        'Upper-Triangularization and SVD'
+        ]
 
 slidesrc = ['disc_00.pdf', 'disc_01.pdf', 'disc_02.pdf', 'disc_03.pdf',
             'disc_04.pdf', 'disc_05.pdf', 'disc06.pdf', 'disc_07.pdf',

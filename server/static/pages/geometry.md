@@ -12,6 +12,7 @@ date: 2022-04-06
     <li>Rotations</li>
 </ol>
 
+For the following discussion let \\(\mathbf{I}\\) denote the identity matrix of appropriate dimension.
 ### 1)Projections
 
 <figure align="center">
@@ -44,7 +45,7 @@ For convenience we will define the following matrix,
 Let's consider a matrix, \\(\mathbf{W}_{y}\\),[^2] that reflects vectors over a particular direction \\(y\\). If we define \\(z\\) as a vector orthogonal to \\(y\\), we can explicity write \\(\mathbf{W}\_{y}\\) as follows,
 
 \\[
-   \mathbf{W}\_{y} = I - 2 \mathbf{P}_{z} 
+   \mathbf{W}\_{y} = \mathbf{I} - 2 \mathbf{P}_{z} 
 \\]
 
 **Exercise:** You should verify that if you choose \\(y = \begin{bmatrix} 1 \\\\ 0 \end{bmatrix}\\), that you get the expected matrix that corresponds to reflecting across the \\(x\\)-axis. *Note that in this example calculating \\(z\\) should be trivial.*
@@ -77,7 +78,7 @@ Shearing is a little more difficult so first we shall define the matrix \\( \mat
     \mathbf{S}_{s, t}^{\mu} = \mathbf{I} + \mu st^T
 \\]
 
-Let \\(x, t \in mathbf{R}^n\\) be a given vector where \\(x\\) is the input vector we want to shear. Consider the line( or plane) consisting of vectors perpendicular to \\(t\\) and choose \\(s \in \mathbf{R}^n\\) to be a vector in this line(or plane) perpendicular to \\(t\\). Shift this line(or plane) perpendicular to \\(t\\) until it intersects \\(x\\). Now add a multiple of \\(s\\) to \\(x\\) that is proportional to both \\(\mu\\) and the distance between the shifted line(or plane) and the one through the origin. This is more complicated in nature although does capture the notion of shearing. *Highly Recommended: Draw pictures and examples*
+Let \\(x, t \in \mathbf{R}^n\\) be a given vector where \\(x\\) is the input vector we want to shear. Consider the line( or plane) consisting of vectors perpendicular to \\(t\\) and choose \\(s \in \mathbf{R}^n\\) to be a vector in this line(or plane) perpendicular to \\(t\\). Shift this line(or plane) perpendicular to \\(t\\) until it intersects \\(x\\). Now add a multiple of \\(s\\) to \\(x\\) that is proportional to both \\(\mu\\) and the distance between the shifted line(or plane) and the one through the origin. This is more complicated in nature although does capture the notion of shearing. *Highly Recommended: Draw pictures and examples*
 
 **Exercise:** You should verify that if you choose, \\(\mu = 1, s = \begin{bmatrix} 1 \\\\ 0 \end{bmatrix},\\), and \\(t = \begin{bmatrix} 0 \\\\ 1 \end{bmatrix}\\) that you get the shearing matrix \\(\mathbf{S}_{s, t}^{\mu} = \begin{bmatrix}1 & 1 \\\\ 0 & 1 \end{bmatrix}\\).
 
@@ -116,7 +117,7 @@ Rotations are another important matrix operation, although are not as easily to 
 \\[
     \langle x, x \rangle = \langle \mathbf{A}x , \mathbf{A}x \rangle
 \\]
-an isometry. The matrix \\(A\\) will have orthonormal columns if and only if it is an isometry. As far as terminology if \\(\mathbf{A}\\) is an isometry then it must have \\(\text{det}\mathbf{A} = \pm 1 \\). If the determinant is \\(+1\\) then in higher dimensions this is referred to as a proper rotation, and if the determinant is \\(-1\\) then it is called a reflection. This generalizes what occurs in 2D and 3D.
+an isometry. The matrix \\(\mathbf{A}\\) will have orthonormal columns if and only if it is an isometry. As far as terminology if \\(\mathbf{A}\\) is an isometry then it must have \\(\text{det}\mathbf{A} = \pm 1 \\). If the determinant is \\(+1\\) then in higher dimensions this is referred to as a proper rotation, and if the determinant is \\(-1\\) then it is called a reflection. This generalizes what occurs in 2D and 3D.
 
 [^1]: This note is largely inspired by a [note](https://people.eecs.berkeley.edu/~wkahan/MathH110/geo.pdf) written by UC Berkeley professor William Kahan who actually won the Turing Award! Also, we have some notation and terminology differences from Kahan's note so be careful if cross-referencing.
 [^2]: In other contexts you will see this matrix referred to as an **elementary orthogonal reflection**, or **Householder reflection**.

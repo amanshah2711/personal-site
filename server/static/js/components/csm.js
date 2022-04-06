@@ -52,7 +52,7 @@ function CSM(){
                                           {rows && rows.map((row)=>(
                                               <tr>
                                                 <td>{row.num}</td>
-                                                <td>{row.title}<br/><span class="badge bg-primary"><a class="text-white text-decoration-none" href={row.note}>Notes</a></span></td>
+                                                <td>{row.title}<br/></td>
                                                 <td><a class="text-decoration-none" href={row.worksheet}>{row.wksht_name}</a> <br/> <span class="badge bg-primary"><a class="text-white text-decoration-none" href={row.solution}>Solution</a></span></td>
                                               </tr>
                                           ))}
@@ -69,6 +69,7 @@ function CSM(){
                             <li class="list-group-item "> <Link to='/pages/projections' class="nav-link">1D Projections</Link></li>
                             <li class="list-group-item "> <Link to='/pages/transposes' class="nav-link">Geometric Interpretation of Transposes</Link></li>
                             <li class="list-group-item "> <Link to='/pages/geometry' class="nav-link">Geometry of Linear Transformations</Link></li>
+                            <li class="list-group-item "> <a href='https://www.youtube.com/playlist?app=desktop&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab' class="nav-link">Essence of Linear Algebra:3Blue1Brown</a></li>
                           </ul>
                       </div>
                   </div>
