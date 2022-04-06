@@ -91,7 +91,7 @@ As an exercise can you determine \\(\mathbf{B}\\) based on the picture? [*Hint: 
 
 ### 2)Speculating a criterion 
 
-Before going forward we shall state the criterion then discuss why one would speculate or choose such criterion. Given \\(\mathbf{A} \in \mathbf{R}^{n \times n}\\) and \\(x,y \in \mathbf{R}^n\\) we are looking for a matrix \\(\mathbf{B}\\ \in \mathbf{R}^{n \times n}\\) such that
+Before going forward we shall state a criterion that characterizes \\(\mathbf{B}\\) then discuss why one would speculate or choose such criterion. Given \\(\mathbf{A} \in \mathbf{R}^{n \times n}\\) and \\(x,y \in \mathbf{R}^n\\) we are looking for a matrix \\(\mathbf{B}\\ \in \mathbf{R}^{n \times n}\\) such that
 
 \\[
     \langle \mathbf{A}x , y \rangle = \langle x , \mathbf{B}y \rangle 
@@ -116,7 +116,7 @@ Now what choice of \\(\mathbf{B}\\) would may these two quantities equal? We cou
 
 ### 3)Determining \\(\mathbf{B}\\) 
 
-It turns out that \\(\mathbf{B}\\) is a matrix we are already familiar with! Particularly we find that, 
+Using our aforementioned criterion we can precisely deduce what \\(\mathbf{B}\\) turns out to be. In fact \\(\mathbf{B}\\) is a matrix we are already familiar with! Particularly we find that, 
 
 \\[
     \mathbf{B} = \mathbf{A}^T
@@ -127,14 +127,14 @@ It turns out that \\(\mathbf{B}\\) is a matrix we are already familiar with! Par
 <summary>Proof</summary>
 Since \(\{e_i\}_{i=1}^{n}\) form an orthonormal basis for \(\mathbf{R}^n\) we can describe an element in \(\mathbf{R}^n\) in terms of this coordinate system in the following way.
 \[
-    \mathbf{A}e_i = \langle \mathbf{A}e_1,e_1\rangle e_1 + \ldots + \langle \mathbf{A}e_n,e_n\rangle e_n \\\\
-    \mathbf{B}e_i = \langle \mathbf{B}e_1,e_1\rangle e_1 + \ldots + \langle\mathbf{B}e_n,e_n\rangle e_n 
+    \mathbf{A}e_i = \langle \mathbf{A}e_i,e_1\rangle e_1 + \ldots + \langle \mathbf{A}e_i,e_n\rangle e_n \\\\
+    \mathbf{B}e_i = \langle \mathbf{B}e_i,e_1\rangle e_1 + \ldots + \langle\mathbf{B}e_i,e_n\rangle e_n 
 \]
 From this it follows that,
 
 \[
-    A_{ij} = \langle \mathbf{A}e_i, e_j \rangle \\\\
-    B_{ij} = \langle \mathbf{B}e_i, e_j \rangle \\\\
+    \mathbf{A}_{ij} = \langle \mathbf{A}e_i, e_j \rangle \\\\
+    \mathbf{B}_{ij} = \langle \mathbf{B}e_i, e_j \rangle \\\\
 \]
 
 But we know some important information
