@@ -215,7 +215,27 @@ function CSM() {
                         React.createElement(
                             Link,
                             { to: "/pages/projections", "class": "nav-link" },
-                            "Understanding Projections"
+                            "1D Projections"
+                        )
+                    ),
+                    React.createElement(
+                        "li",
+                        { "class": "list-group-item " },
+                        " ",
+                        React.createElement(
+                            Link,
+                            { to: "/pages/transposes", "class": "nav-link" },
+                            "Geometric Interpretation of Transposes"
+                        )
+                    ),
+                    React.createElement(
+                        "li",
+                        { "class": "list-group-item " },
+                        " ",
+                        React.createElement(
+                            Link,
+                            { to: "/pages/geometry", "class": "nav-link" },
+                            "Geometry of Linear Transformations"
                         )
                     )
                 )
