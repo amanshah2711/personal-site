@@ -66,7 +66,9 @@ function CSM(){
                           <h3  style={{color:"#047BFE"}}>Additional Resources</h3>
 
                           <ul class="list-group list-group-flush">
-                            <li class="list-group-item "> <Link to='/pages/projections' class="nav-link">Understanding Projections</Link></li>
+                            <li class="list-group-item "> <Link to='/pages/projections' class="nav-link">1D Projections</Link></li>
+                            <li class="list-group-item "> <Link to='/pages/transposes' class="nav-link">Geometric Interpretation of Transposes</Link></li>
+                            <li class="list-group-item "> <Link to='/pages/geometry' class="nav-link">Geometry of Linear Transformations</Link></li>
                           </ul>
                       </div>
                   </div>

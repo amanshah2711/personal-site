@@ -27,6 +27,12 @@ The important thing to understand for this discussion is projections onto a 1D s
 
 For convenience we will define the following matrix,
 
+\\[
+    \mathbf{P}_{y} = \frac{yy^T}{\lVert y \rVert^2}
+\\]
+
+**Exercise:**You should verify that if you choose \\(y = \begin{bmatrix} 1 \\\\ 0 \end{bmatrix}\\), that you get the expected matrix that corresponds to projecting onto the \\(x\\)-axis.
+
 
 ### 2)Reflections
 
@@ -35,12 +41,13 @@ For convenience we will define the following matrix,
   <figcaption> <b>Figure 2:</b> The square is doubling in area after each matrix is applied.</figcaption>
 </figure>
 
-Let's reflect a vector \\(x\\) across a particular direction \\(y\\) and call the resultant vector \\(\beta\\). Then if we define \\(z\\) as the vector orthogonal to \\(y\\), we can state the following,
+Let's consider a matrix, \\(\mathbf{W}_{y}\\) that reflects vectors over a particular direction \\(y\\). If we define \\(z\\) as a vector orthogonal to \\(y\\), we can explicity write \\(\mathbf{W}\_{y}\\) as follows,
 
 \\[
-   \beta = x - 2P_{z}(x)\frac{z}{\lVert z \rVert} = \left(I - 2 \frac{z z^T}{\lVert z \rVert^2} \right) x
+   \mathbf{W}\_{y} = I - 2 \mathbf{P}_{z} 
 \\]
 
+**Exercise:** You should verify that if you choose \\(y = \begin{bmatrix} 1 \\\\ 0 \end{bmatrix}\\), that you get the expected matrix that corresponds to reflecting across the \\(x\\)-axis. *Note that in this example calculating \\(z\\) should be trivial.*
 
 ### 3)Scaling(or Dilations)
 
@@ -48,17 +55,14 @@ Let's reflect a vector \\(x\\) across a particular direction \\(y\\) and call th
   <img src="/server/static/img/scaling.png" alt=":(" width="600" height="300"/>
   <figcaption> <b>Figure 1:</b> The square is doubling in area after each matrix is applied.</figcaption>
 </figure>
-Consider wanting to scale along a particular direction \\(y\\). Then for any non-zero scalar \\(\mu\\) we define,
+Let's consider a matrix, \\( \mathbf{M}\_{y}^{\mu} \\), that scales vectors along a particular direction \\(y\\) by a factor \\(\mu\\). Then we can explicitly write \\( \mathbf{M}\_{y}^{\mu} \\) as,
 
 \\[
-    M(\mu)x = x + (\mu - 1)P_{y}(x)\frac{y}{\lVert y \rVert}
+    \mathbf{M}\_{y}^{\mu} = \mathbf{I} + (\mu - 1) \mathbf{P}_{y}
 \\]
 
-In other words we are defining the matrix \\(S(\mu)\\) that is dependent on both the scale factor \\(\mu\\) and the direction \\(y\\). We can explicitly write this matrix as,
+**Exercise:** You should verify that if you choose \\(y = \begin{bmatrix} 1 \\\\ 0 \end{bmatrix}\\) and \\(\mu = 2\\), that you get the expected matrix that corresponds to scaling along the \\(x\\)-axis by \\(2\\).
 
-\\[
-    M(\mu) = I - (\mu - 1)\frac{yy^T}{\lVert y \rVert^2}
-\\]
 
 ### 4)Shearing
 
