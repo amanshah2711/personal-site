@@ -161,7 +161,7 @@ There are many intuitive consequences of this result and this idea might help ex
 
 </ol>
 
-This discussion doesn't lead to immediate proofs of the above facts, although it should aid in understanding *why* someone would conjecture the above facts to be true. Particularly useful is that the spectral theorem should hopefully be "obvious" although its proof may be a little harder.
+This discussion doesn't lead to immediate proofs of the above facts, although it should aid in understanding *why* someone would conjecture the above facts to be true. Particularly useful is that the spectral theorem which should hopefully be "obvious" although its proof may be a little harder.
 
 
 [^1]: For the purposes of this discussion and in almost all engineering contexts we assume that the matrix \\(\mathbf{A}\\) is written with respect to the standard basis on \\(\mathbf{R}^n\\).
