@@ -86,7 +86,7 @@ As an exercise can you determine \\(\mathbf{B}\\) based on the picture? [*Hint: 
 
 <figure align="center">
   <img src="/server/static/img/transpose_three.png" alt=":(" width="600" height="200"/>
-  <figcaption> <b>Figure 3:</b> The square is squashed onto the \\(x\\)-axis, then rotated and stretched by a factor of 2, and finally stretched and rotated back.</figcaption>
+  <figcaption> <b>Figure 3:</b> The square is squashed onto the \(x\)-axis, then rotated and stretched by a factor of 2, and finally stretched and rotated back.</figcaption>
 </figure>
 
 ### 2)Speculating a criterion 
