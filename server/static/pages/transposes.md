@@ -128,16 +128,16 @@ Using our aforementioned criterion we can precisely deduce what \\(\mathbf{B}\\)
 One can verify that,
 
 \[
-    \mathbf{A}_{ij} = \langle \mathbf{A}e_i, e_j \rangle \\\\
-    \mathbf{B}_{ij} = \langle \mathbf{B}e_i, e_j \rangle \\\\
+    \mathbf{A}_{ij} = \langle \mathbf{A}e_j, e_i \rangle \\\\
+    \mathbf{B}_{ij} = \langle \mathbf{B}e_j, e_i \rangle \\\\
 \]
 
 But we know some important information
 \[
     \begin{align}
-\mathbf{A}_{ij} =& \langle \mathbf{A}e_i, e_j \rangle \\\\
-           =& \langle e_i, \mathbf{B}e_j \rangle \\\\
-           =& \langle \mathbf{B}e_j, e_i \rangle \\\\
+\mathbf{A}_{ij} =& \langle \mathbf{A}e_j, e_i \rangle \\\\
+           =& \langle e_j, \mathbf{B}e_i \rangle \\\\
+           =& \langle \mathbf{B}e_i, e_j \rangle \\\\
            =& \mathbf{B}_{ji}
            \end{align}
 \]
