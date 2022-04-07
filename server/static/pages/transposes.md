@@ -99,7 +99,7 @@ Before going forward we shall state a criterion that characterizes \\(\mathbf{B}
 
 Please take a moment to parse this criterion because it is *non-trivial*. 
 
-Now we will proceed with an informal discussion of why this may be the right choice. Consider that we add the constraint that \\( \lVert x \rVert = \lVert y \rVert = 1 \\) which says these vectors lie on the unit circle. Then from our knowledge of [projections](/pages/projections) we know that,
+Now we will proceed with an informal discussion of why this may be the right choice. Consider adding the constraint that \\( \lVert x \rVert = \lVert y \rVert = 1 \\) which says these vectors lie on the unit circle[^3]. Then from our knowledge of [projections](/pages/projections) we know that,
 
 \\[
     \langle \mathbf{A}x , y \rangle  = \lVert \mathbf{A}x \rVert cos(\theta) \\\\
@@ -157,7 +157,7 @@ There are many intuitive consequences of this result and this idea might help ex
     <li>Why does \(\mathbf{A}^T\mathbf{A}\) have the same eigenvalues as \(\mathbf{A}\mathbf{A}^T\)? </li>
     <li>Why are  the eigenvalues of \(\mathbf{A}\mathbf{A}^T\) and \(\mathbf{A}^T\mathbf{A}\) non-negative? </li>
     <li>Why does \(\mathbf{A} = \mathbf{A}^T\) imply that the eigenvalues of \(\mathbf{A}\) are real?</li>
-    <li>Why does \(\mathbf{A} = \mathbf{A}^T\) imply that \(\mathbf{A}\) is diagonalizable<sup><a class="footnote-ref" href="#fn:3">3</a></sup>?</li>
+    <li>Why does \(\mathbf{A} = \mathbf{A}^T\) imply that \(\mathbf{A}\) is diagonalizable<sup><a class="footnote-ref" href="#fn:4">4</a></sup>?</li>
 
 </ol>
 
@@ -166,5 +166,6 @@ This discussion doesn't lead to immediate proofs of the above facts, although it
 
 [^1]: For the purposes of this discussion and in almost all engineering contexts we assume that the matrix \\(\mathbf{A}\\) is written with respect to the standard basis on \\(\mathbf{R}^n\\).
 [^2]: Recall that **isometry** simply means an operation that preserves norms. If you hear this term think orthonormal matrix, rotations, and reflections. A good way to remember this comes from Greek where **iso** means same and **metron** means measure. Therefore **isometry** means equal measure.*[Credit: Sheldon Axler, Linear Algebra Done Right Third Edition Page 228]*
-[^3]: This fact is simply the spectral theorem for real matrices.
+[^3]: Or unit sphere in \\(\mathbf{R}^n\\)
+[^4]: This fact is simply the spectral theorem for real matrices.
 
