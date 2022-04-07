@@ -13,11 +13,11 @@ date: 2022-04-05
 As prerequisite reading please skim through [projections](/pages/projections) and [geometry of linear transformations](/pages/geometry).
 
 ### 1)Define the problem
-Let's say we are given a matrix \\(\mathbf{A} \in \mathbf{R}^{n \times n}\\). A general matrix \\(\mathbf{A}\\)[^1] is quite difficult to understand beyond a block of numbers. One way to approach an understanding of \\(\mathbf{A}\\) is to realize that geometrically \\(\mathbf{A}\\) is a just a few geometric actions(which are all conveniently described here). We can divide these actions into two types: isometric[^2] and others. Since \\(\mathbf{A}\\) is hard to understand perhaps it would be easier if we could break \\(\mathbf{A}\\) into two pieces, where one describes the isometric behavior of \\(\mathbf{A}\\) and the other describes the scaling behavior of \\(\mathbf{A}\\). To do this we need to isolate either behavior of \\(\mathbf{A}\\) and our goal for today will be isolated the scaling behavior of \\(\mathbf{A}\\).
+Let's say we are given a matrix \\(\mathbf{A} \in \mathbf{R}^{n \times n}\\). A general matrix \\(\mathbf{A}\\)[^1] is quite difficult to understand beyond a block of numbers. One way to approach an understanding of \\(\mathbf{A}\\) is to realize that geometrically \\(\mathbf{A}\\) is a just a few geometric actions(which are all conveniently described here). We can divide these actions into two types: isometric[^2] and others. Since \\(\mathbf{A}\\) is hard to understand perhaps it would be easier if we could break \\(\mathbf{A}\\) into two pieces, where one describes the isometric behavior of \\(\mathbf{A}\\) and the other describes the scaling behavior of \\(\mathbf{A}\\). To do this we need to isolate either behavior of \\(\mathbf{A}\\) and our goal for today will be isolating the scaling behavior of \\(\mathbf{A}\\).
 
 So let's attempt to formulate this problem somewhat mathematically. We are looking for a matrix, \\(\mathbf{B} \in \mathbf{R}^{n \times n}\\), such that \\(\mathbf{B}\\) undoes the isometric behavior of \\(\mathbf{A}\\). That is \\(\mathbf{BA}\\) has no isometric component, which visually means \\(\mathbf{BA}\\) should do no rotating or reflecting, but simply scale along some set of axes. This notion is a little imprecise, however hopefully these examples demonstrate what \\(\mathbf{B}\\) should be doing. In all the following examples we illustrate what happens by considering the image of the unit square in \\(\mathbf{R}^2\\).
 
-**Note:** An astute reader may observe that \\(\mathbf{A}^{-1}\\) will undo the isometric behavior of \\(\mathbf{A}\\). However the problem is many, many practical matrices are not invertible! That's why we seek something else.
+**Note:** An astute reader may observe that \\(\mathbf{A}^{-1}\\) will undo the isometric behavior of \\(\mathbf{A}\\). However the problem is many, many practical matrices are not invertible! In addition this doesn't let us isolate different "geometric" components of \\(\mathbf{A}\\) because the inverse reverses everything. Thus we seek something else.
 
 #### Example 1)
 
@@ -65,7 +65,7 @@ As an exercise can you determine \\(\mathbf{B}\\) based on the picture? [*Hint: 
 </figure>
 
 #### Example 3)
-In this example we consider the matrix which scales the x-axis by \\(2\\) and y-axis by \\(0\\) and  rotates vectors by \\( \theta = \frac{\pi}{4}\\). Explicity we know that we can write this matrix as,
+In this example we consider the matrix which scales the \\(x\\)-axis by \\(2\\) and \\(y\\)-axis by \\(0\\) and  rotates vectors by \\( \theta = \frac{\pi}{4}\\). Explicity we know that we can write this matrix as,
 
 \\[
     \mathbf{A} =  \begin{bmatrix}
@@ -86,7 +86,7 @@ As an exercise can you determine \\(\mathbf{B}\\) based on the picture? [*Hint: 
 
 <figure align="center">
   <img src="/server/static/img/transpose_three.png" alt=":(" width="600" height="200"/>
-  <figcaption> <b>Figure 3:</b> The square is squashed onto the x-axis, then rotated and stretched by a factor of 2, and finally stretched and rotated back.</figcaption>
+  <figcaption> <b>Figure 3:</b> The square is squashed onto the \\(x\\)-axis, then rotated and stretched by a factor of 2, and finally stretched and rotated back.</figcaption>
 </figure>
 
 ### 2)Speculating a criterion 
