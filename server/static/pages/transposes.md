@@ -125,12 +125,7 @@ Using our aforementioned criterion we can precisely deduce what \\(\mathbf{B}\\)
 
 <details style="background-color:aliceblue;padding:10px;">
 <summary>Proof</summary>
-Since \(\{e_i\}_{i=1}^{n}\) form an orthonormal basis for \(\mathbf{R}^n\) we can describe an element in \(\mathbf{R}^n\) in terms of this coordinate system in the following way.
-\[
-    \mathbf{A}e_i = \langle \mathbf{A}e_i,e_1\rangle e_1 + \ldots + \langle \mathbf{A}e_i,e_n\rangle e_n \\\\
-    \mathbf{B}e_i = \langle \mathbf{B}e_i,e_1\rangle e_1 + \ldots + \langle\mathbf{B}e_i,e_n\rangle e_n 
-\]
-From this it follows that,
+One can verify that,
 
 \[
     \mathbf{A}_{ij} = \langle \mathbf{A}e_i, e_j \rangle \\\\
@@ -150,6 +145,8 @@ But we know some important information
 Thus since we know \( \mathbf{B}_{ji} = \mathbf{A}_{ij}\) we can restate this fact as \(\mathbf{B} = \mathbf{A}^T\). \(\square\)
 </details>
 
+**Exercise:** Choose \\(x = \begin{bmatrix} 0 \\\\ 1 \end{bmatrix}\\), \\(y = \begin{bmatrix} 1 \\\\ 0 \end{bmatrix}\\), and \\( \mathbf{A} = \begin{bmatrix}1 & 1 \\\\ 0 & 1 \end{bmatrix} \\). Calculate for yourself the angle between \\(\mathbf{A}x\\) and \\(y\\) and \\(\mathbf{B}y\\) and \\(x\\) to see if they are the same. Is the norm of \\(\mathbf{A}x\\) the same as that of \\(\mathbf{B}y\\\)?
+
 ### Implications
 
 There are many intuitive consequences of this result and this idea might help explain why several results you have already seen are true. Here is a non-exhaustive list of results you should have seen before that you should re-examine with your new geometric lense.
@@ -164,7 +161,7 @@ There are many intuitive consequences of this result and this idea might help ex
 
 </ol>
 
-This discussion doesn't lead to immediate proofs of the above facts, although it should aid in understanding *why* someone would conjecture the above facts to be true.
+This discussion doesn't lead to immediate proofs of the above facts, although it should aid in understanding *why* someone would conjecture the above facts to be true. Particularly useful is that the spectral theorem should hopefully be "obvious" although its proof may be a little harder.
 
 
 [^1]: For the purposes of this discussion and in almost all engineering contexts we assume that the matrix \\(\mathbf{A}\\) is written with respect to the standard basis on \\(\mathbf{R}^n\\).
