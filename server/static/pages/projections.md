@@ -8,7 +8,8 @@ date: 2022-04-05
     <li>Show that the geometry of the problem implies it is linear</li>
     <li>Use linearity to determine the projection precisely</li>
     <li>Bonus Content</li>
-    <li>Relation to Gram-Schmidt</li>
+    <li>Connection to Gram-Schmidt</li>
+    <li>Connection to Least-Squares</li>
 </ol>
 
 ### 1) Problem Formulation
@@ -117,7 +118,7 @@ To complete our problem we need to exactly determine \\(\alpha\\) and we do so u
 Thus we conclude
 \\[
     P_y(x) = \frac{y^T x}{\lVert y \rVert } \\\\
-    \beta^* = \frac{y^Tx}{\Vert y \rVert^2} y
+    \beta^* = \frac{y^Tx}{\Vert y \rVert^2} y = \frac{yy^T}{\Vert y \rVert^2} x
 \\]
  
 ### 4) Bonus Content
@@ -152,6 +153,25 @@ Consider a set of linearly independent vectors, \\( V = \\{ v_{i} \\}\_{i=1}^{m}
 
 Then from here we simply say that \\(u_i = \frac{\tilde{u_i}}{\lVert \tilde{u_i} \rVert}  \\) and we are done. The simplification to get to the usual presentation of Gram-Schmidt is to realize that \\( P_{ \tilde{u_i} } (\cdot ) = \langle u_i , \cdot \rangle \\).
 
+### 6) Connection 
+
+We are currently starting with the following optimization problem determined in Section 1),
+
+\\[
+    \min_{\beta \in span \\{ y\\} } \lVert \beta - x \rVert 
+\\]
+
+We can restate this problem equivalently as,
+
+\\[
+    \min_{c \in \mathbf{R} } \left\lVert \frac{y}{\lVert y \rVert}c - x \right\rVert 
+\\]
+
+This is exactly an overdetermined least-squares problem! Our matrix is the column vector \\(\mathbf{A} = \frac{y}{\lVert y \rVert}\\) which trivially has linearly independent columns(because there is only one column). In least squares notation then \\(c\\) is, 
+\\[
+    c = (\mathbf{A}^T\mathbf{A})^{-1}\mathbf{A}^Tx = \left(\frac{y^T}{\lVert y \rVert}\frac{y}{\lVert y \rVert}\right)^{-1} \frac{y^T}{\lVert y \rVert} x = \frac{y^T x}{\lVert y \rVert }
+\\]
+Thus we see the coefficient \\(c\\) given by least-squares is exactly what we had earlier. Specifically, we found \\(P_{y}(x) = c\\) which should be expected because least-squares is motivated by projection onto the column space of a matrix.
 [^1]: In many engineering and physics contexts the term *superposition* is used instead of additivity. 
 [^2]: This proof is fine to omit on first reading.
 [^3]: This fact that a linear transformation can be identified by a vector is called *duality*. Though innocuous this is a big deal and something you should become familiar with if you are interested in optimization, linear algebra, or further calculus.
