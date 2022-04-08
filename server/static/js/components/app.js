@@ -8,7 +8,7 @@ function App() {
 	            <Route exact path="/CS61A" render={() => (<Teaching/>)} />
 	            <Route exact path="/EECS16B" render={() => (<CSM/>)} />
 							<Route exact path="/chess" render={() => (<ChessBoard/>)} />
-							<Route path="/pages/:id" render={(props) => (<Pages {...props}/>)} />
+						    <Route path="/pages/:id" render={(props) => (<Pages {...props}/>)} />
 	          </Switch>
 	        </div>
 	      </BrowserRouter>
