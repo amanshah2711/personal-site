@@ -91,11 +91,12 @@ We see the following,
   <img src="/server/static/img/scaling.png" alt=":(" width="600" height="300"/>
   <figcaption> <b>Figure 3:</b> The matrix stretches the \(x\)-axis and consequently turns the square into a rectangle with twice the area.</figcaption>
 </figure>
-Intuitively a dilation operation is just an operation that scales vectors along one or more directions. Let's consider a matrix, \\( \mathbf{M}\_{y}^{\mu} \in \mathbf{R}^{n \times n} \\), that scales vectors along a particular direction \\(y \in \mathbf{R}^n\\) by a factor \\(\mu \in \mathbf{R} \\). Then we can explicitly write \\( \mathbf{M}\_{y}^{\mu} \\) as,
+Intuitively a dilation operation is just an operation that scales vectors along one or more directions. Let's consider a matrix, \\( \mathbf{M}\_{y}^{\mu} \in \mathbf{R}^{n \times n} \\), referred to as the dilator, that scales vectors along a particular direction \\(y \in \mathbf{R}^n\\) by a factor \\(\mu \in \mathbf{R} \\). Then we can explicitly write \\( \mathbf{M}\_{y}^{\mu} \\) as,
 
 \\[
     \mathbf{M}\_{y}^{\mu} = \mathbf{I} + (\mu - 1) \mathbf{P}_{y}
 \\]
+We can say based on this form of \\( \mathbf{M}\_{y}^{\mu} \\), that the dilator expands when \\(\lvert \mu \rvert > 1\\) or compresses when \\(\lvert \mu \rvert< 1\\).
 
 **Exercise:** You should verify that if you choose \\(y = \begin{bmatrix} 1 \\\\ 0 \end{bmatrix}\\) and \\(\mu = 2\\), that you get the expected matrix that corresponds to scaling along the \\(x\\)-axis by \\(2\\).
 
