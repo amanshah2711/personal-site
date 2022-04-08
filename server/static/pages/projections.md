@@ -39,7 +39,7 @@ This definition is meant to reflect that \\( P_y(\cdot) \\) tells us how much in
     \beta^* = P_y(x)\frac{y}{\lVert y \rVert }
 \\]
 
-### 2) Show \\( P_y(\cdot) \\) is linear
+### 2) Show \\( P_y(\cdot) \\) is Linear
 While we now have a "solution" this is useless without knowing exactly what \\(P_y(\cdot)\\) is. So we use the geometry of our problem to determine several properties \\(P_y(\cdot)\\) must hold and then use those properties to explicity determine \\(P_y(\cdot)\\).
 
 #### Property 1: Additivity[^1]
@@ -153,7 +153,7 @@ Consider a set of linearly independent vectors, \\( V = \\{ v_{i} \\}\_{i=1}^{m}
 
 Then from here we simply say that \\(u_i = \frac{\tilde{u_i}}{\lVert \tilde{u_i} \rVert}  \\) and we are done. The simplification to get to the usual presentation of Gram-Schmidt is to realize that \\( P_{ \tilde{u_i} } (\cdot ) = \langle u_i , \cdot \rangle \\).
 
-### 6) Connection 
+### 6) Connection to Overdetermined Least-Squares
 
 We are currently starting with the following optimization problem determined in Section 1),
 
