@@ -6,8 +6,8 @@ date: 2022-04-06
 <ol>
     <li>Projections</li>
     <li>Reflections</li>
-    <li>Scaling(or Dilations)</li>
-    <li>Shearing</li>
+    <li>Dilations</li>
+    <li>Shears</li>
     <li>Important aside: Gaussian Elimination</li>
     <li>Rotations</li>
 </ol>
@@ -85,13 +85,13 @@ We see the following,
 </details>
 **Exercise:** You should verify that if you choose \\(y = \begin{bmatrix} 1 \\\\ 0 \end{bmatrix}\\), that you get the expected matrix that corresponds to reflecting across the \\(x\\)-axis. *Note that in this example calculating \\(z\\) should be trivial.*
 
-### 3)Scaling(or Dilations)
+### 3)Dilations
 
 <figure align="center">
   <img src="/server/static/img/scaling.png" alt=":(" width="600" height="300"/>
   <figcaption> <b>Figure 3:</b> The matrix stretches the \(x\)-axis and consequently turns the square into a rectangle with twice the area.</figcaption>
 </figure>
-Let's consider a matrix, \\( \mathbf{M}\_{y}^{\mu} \in \mathbf{R}^{n \times n} \\), that scales vectors along a particular direction \\(y \in \mathbf{R}^n\\) by a factor \\(\mu \in \mathbf{R} \\). Then we can explicitly write \\( \mathbf{M}\_{y}^{\mu} \\) as,
+Intuitively a dilation operation is just an operation that scales vectors along one or more directions. Let's consider a matrix, \\( \mathbf{M}\_{y}^{\mu} \in \mathbf{R}^{n \times n} \\), that scales vectors along a particular direction \\(y \in \mathbf{R}^n\\) by a factor \\(\mu \in \mathbf{R} \\). Then we can explicitly write \\( \mathbf{M}\_{y}^{\mu} \\) as,
 
 \\[
     \mathbf{M}\_{y}^{\mu} = \mathbf{I} + (\mu - 1) \mathbf{P}_{y}
@@ -100,7 +100,7 @@ Let's consider a matrix, \\( \mathbf{M}\_{y}^{\mu} \in \mathbf{R}^{n \times n} \
 **Exercise:** You should verify that if you choose \\(y = \begin{bmatrix} 1 \\\\ 0 \end{bmatrix}\\) and \\(\mu = 2\\), that you get the expected matrix that corresponds to scaling along the \\(x\\)-axis by \\(2\\).
 
 
-### 4)Shearing
+### 4)Shears
 
 <figure align="center">
   <img src="/server/static/img/shear.png" alt=":(" width="600" height="300"/>
