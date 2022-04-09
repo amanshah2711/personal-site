@@ -13,11 +13,11 @@ def index(*args, **kwargs):
     #return render_template('teaching_page.html', disc_info=nums)
     return render_template('index.html')
 
+@app.route('/notes/<path:path>/')
 @app.route('/pages/<path:path>/')
 def page(path):
     # 'path is the filename of a page, without the file extension'
     # e.g. "first-post"
-    print("This is the path dummy", path)
     page = pages.get_or_404(path)
 
     return render_template('page.html', page=page)

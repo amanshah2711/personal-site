@@ -17,7 +17,6 @@ function Pages({match}){
     }, [])
     return (
         <div class="container">
-        <NavBar/>
         <div id="holder">
         </div>
         </div>

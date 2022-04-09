@@ -4,6 +4,7 @@
 # Local database
 *.db
 
+*.vscode
 # macOS
 .DS_Store
 

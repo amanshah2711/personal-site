@@ -2,8 +2,9 @@ function App() {
 			let { BrowserRouter, Route, Switch } = ReactRouterDOM;
       return (
 				<BrowserRouter>
-	        <div>
-	          <Switch>
+	        <div class="container">
+				<NavBar/>
+				<Switch>
 	            <Route exact path="/" render={() => (<CSM/>)}/>
 	            <Route exact path="/CS61A" render={() => (<Teaching/>)} />
 	            <Route exact path="/EECS16B" render={() => (<CSM/>)} />

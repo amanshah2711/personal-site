@@ -21,7 +21,6 @@ function CSM() {
     return React.createElement(
         "div",
         { "class": "container" },
-        React.createElement(NavBar, null),
         React.createElement(
             "div",
             { "class": "row justify-content-md-center" },
@@ -391,7 +390,6 @@ function Teaching() {
     return React.createElement(
         "div",
         { "class": "container" },
-        React.createElement(NavBar, null),
         React.createElement(
             "div",
             { "class": "row justify-content-md-center" },
@@ -699,7 +697,6 @@ function ChessBoard() {
 	return React.createElement(
 		"div",
 		{ "class": "container" },
-		React.createElement(NavBar, null),
 		React.createElement(Board, { width: BOARD_DIM, height: BOARD_DIM, color_map: chess_styler, pieces: grid, callback: handleClick })
 	);
 }
@@ -735,7 +732,6 @@ function Pages(_ref) {
     return React.createElement(
         "div",
         { "class": "container" },
-        React.createElement(NavBar, null),
         React.createElement("div", { id: "holder" })
     );
 }
@@ -754,7 +750,8 @@ function App() {
 						null,
 						React.createElement(
 									"div",
-									null,
+									{ "class": "container" },
+									React.createElement(NavBar, null),
 									React.createElement(
 												Switch,
 												null,

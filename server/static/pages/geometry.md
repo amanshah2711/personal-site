@@ -122,7 +122,7 @@ parallelograms. The bottom card stays fixed in the plane ...
 
 In our notation the bottom card that remains fixed corresponds to \\(s\\).
 
-**Exercise:** You should verify that if you choose, \\(\mu = 1, s = \begin{bmatrix} 1 \\\\ 0 \end{bmatrix},\\), and \\(t = \begin{bmatrix} 0 \\\\ 1 \end{bmatrix}\\) that you get the shearing matrix \\(\mathbf{S}_{s, t}^{\mu} = \begin{bmatrix}1 & 1 \\\\ 0 & 1 \end{bmatrix}\\).
+**Exercise:** You should verify that if you choose, \\(\mu = 1, s = \begin{bmatrix} 1 \\\\ 0 \end{bmatrix}\\), and \\(t = \begin{bmatrix} 0 \\\\ 1 \end{bmatrix}\\) that you get the shearing matrix \\(\mathbf{S}_{s, t}^{\mu} = \begin{bmatrix}1 & 1 \\\\ 0 & 1 \end{bmatrix}\\).
 
 
 ### 5)Important Aside: Gaussian elimination
