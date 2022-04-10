@@ -12,6 +12,7 @@ function CSM(){
         }, [])
         return (
             <div class="container">
+                <NavBar/>
                 <div class="row justify-content-md-center">
                     <hr class="col-md-11"></hr>
                     <div class="col-md-10">

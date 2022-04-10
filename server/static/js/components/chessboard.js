@@ -56,6 +56,7 @@ function ChessBoard(){
 	}
 	return (
 		<div class="container">
+			<NavBar/>
 			<Board width={BOARD_DIM} height={BOARD_DIM} color_map={chess_styler} pieces={grid} callback={handleClick}></Board>
 		</div>
 	)
