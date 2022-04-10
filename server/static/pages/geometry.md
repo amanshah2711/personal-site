@@ -37,7 +37,7 @@ It turns out a defining characteristic of a projection is that applying the proj
 \\[
     \mathbf{P}\_{y}^2 = \mathbf{P}_{y}
 \\]
-It turns out this is not that difficult to prove. Try it as an exercise, but the proof is below.
+It turns out this is not that difficult to prove for our 1D projections. Try it as an exercise, but the proof is below.
 <details style="background-color:aliceblue;padding:10px;">
 <summary>Proof</summary>
 We see the following,
@@ -121,7 +121,7 @@ parallelograms. The bottom card stays fixed in the plane ...
 
 In our notation the bottom card that remains fixed corresponds to \\(s\\).
 
-**Exercise:** You should verify that if you choose, \\(\mu = 1, s = \begin{bmatrix} 1 \\\\ 0 \end{bmatrix},\\), and \\(t = \begin{bmatrix} 0 \\\\ 1 \end{bmatrix}\\) that you get the shearing matrix \\(\mathbf{S}_{s, t}^{\mu} = \begin{bmatrix}1 & 1 \\\\ 0 & 1 \end{bmatrix}\\).
+**Exercise:** You should verify that if you choose, \\(\mu = 1, s = \begin{bmatrix} 1 \\\\ 0 \end{bmatrix}\\), and \\(t = \begin{bmatrix} 0 \\\\ 1 \end{bmatrix}\\) that you get the shearing matrix \\(\mathbf{S}_{s, t}^{\mu} = \begin{bmatrix}1 & 1 \\\\ 0 & 1 \end{bmatrix}\\).
 
 
 ### 5)Important Aside: Gaussian elimination
