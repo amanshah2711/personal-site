@@ -71,6 +71,8 @@ function CSM(){
                             <li class="list-group-item "> <Link to='/pages/geometry' class="nav-link">Geometry of Linear Transformations</Link></li>
                             <li class="list-group-item "> <a href='https://www.youtube.com/playlist?app=desktop&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab' class="nav-link">Essence of Linear Algebra:3Blue1Brown</a></li>
                             <li class="list-group-item "> <a href='https://people.eecs.berkeley.edu/~wkahan/MathH110/index.html' class="nav-link">William Kahan: MathH110 Notes</a></li>
+                            <li class="list-group-item "> <a href='https://gregorygundersen.com/blog/2018/12/10/svd/#trefethen1997numerical' class="nav-link">Gregory Gunderson: SVD as Simply as Possible</a></li>
+
 
                           </ul>
                       </div>
