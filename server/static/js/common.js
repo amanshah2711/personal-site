@@ -1,1 +1,1 @@
-let app = ReactDOM.render(<App />, document.getElementById('content'));
+let app = ReactDOM.render(<App/>, document.getElementById('content'));

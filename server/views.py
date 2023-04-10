@@ -2,25 +2,37 @@ from flask import abort, render_template, request, url_for, copy_current_request
 import os
 from server import app
 from flask_flatpages import FlatPages
+from flask_socketio import SocketIO, send, emit
 app.config.from_pyfile('settings.py')
 
 pages = FlatPages(app)
+socketio = SocketIO(app)
 
 
-@app.route('/')
-@app.route('/<path:path>/')
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
 def index(*args, **kwargs):
-    #return render_template('teaching_page.html', disc_info=nums)
     return render_template('index.html')
 
-@app.route('/pages/<path:path>/')
+
+
+@app.route('/blog/pages/<path:path>/')
 def page(path):
     # 'path is the filename of a page, without the file extension'
     # e.g. "first-post"
-    print("This is the path dummy", path)
+    print(path, "BOBO")
     page = pages.get_or_404(path)
+    print(page, "BIBIBI")
+    return render_template('page.html', page=page), "bebebebeb"
 
+@app.route('/get_posts')
+def get_posts():
+    # 'path is the filename of a page, without the file extension'
+    # e.g. "first-post"
+
+    print("present")
     return render_template('page.html', page=page)
+
 
 @app.route('/load_discussion')
 def load_discussion():
@@ -80,6 +92,7 @@ def load_csm():
             init_data.append({'num': i, 'title': title,  'worksheet': worksheet, 'wksht_name': name, 'solution': solution})
     return jsonify(init_data)
 
+
 titles2=[
         'Differential Equations, RC Circuits, Change of Basis',
         'Change of Basis, Inductors, and Complex Numbers',
@@ -90,10 +103,10 @@ titles2=[
         'Gram-Schmidt',
         'Upper-Triangularization and SVD'
         ]
-
 slidesrc = ['disc_00.pdf', 'disc_01.pdf', 'disc_02.pdf', 'disc_03.pdf',
             'disc_04.pdf', 'disc_05.pdf', 'disc06.pdf', 'disc_07.pdf',
             'disc_08.pdf', 'disc_10.pdf', 'disc12.pdf']
+
 titles=['Getting Started',
         'Control, Environment Diagrams',
         'Higher-Order Functions, Lambda Expressions',

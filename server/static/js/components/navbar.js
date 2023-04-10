@@ -1,5 +1,4 @@
 function NavBar(){
-  var { NavLink, Link } = ReactRouterDOM;
   return (
     <div class="row justify-content-md-center">
       <div class="col-md-10">
@@ -10,21 +9,29 @@ function NavBar(){
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="navbar-nav">
-                  <NavLink to='/EECS16B' class="nav-link text-decoration-none" activeStyle={{
-                    fontWeight: "bold",
-                    color: "black"}}>
-                      EECS16B
-                    </NavLink>
-                  <NavLink to='/CS61A' class="nav-link text-decoration-none" activeStyle={{
-                    fontWeight: "bold",
-                    color: "black"}}>
-                      CS61A
-                  </NavLink>
-
+                  <li class="nav-item">
+                    <a class="nav-link" href="/blog">Blog</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/project">Project</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/chess">Chess</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Teaching
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <a href="/eecs16b" class="dropdown-item">EECS16B</a>
+                      <a href="/cs61a" class="dropdown-item">CS61A</a>
+                    </div>
+                  </li>
                 </div>
               </div>
           </nav>
       </div>
+    <hr class="col-md-11"></hr>
   </div>
 );
 }

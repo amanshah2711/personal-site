@@ -1,6 +1,7 @@
 title: Projections
-subtitle: We explore how to systematically understand projections onto vector spaces of dimension one.
+subtitle: We explore understand projections onto vector spaces of dimension one.
 date: 2022-04-05
+author: Aman Shah
 
 ### Outline
 <ol>
@@ -14,113 +15,26 @@ date: 2022-04-05
 
 ### 1) Problem Formulation
 
-Let's say we are given \\( x,y \in \mathbf{R}^n \\). We may be interested in the problem of projecting the vector \\(x\\) onto the vector space \\( span \\{ y \\}\\). 
+Given \\( r, c, z \in \mathbf{R}^n \\) such that \\(r^Tc \neq 0\\), we are interested in the problem of projecting \\(z\\) onto \\(c\\) along hyperplanes perpendicular to \\(r\\).  
 <figure align="center">
-  <img src="/server/static/img/projection.png" alt=":(" width="400" height="400"/>
+  <img src="/server/static/img/setup.png" alt=":(" width="600" height="600"/>
   <figcaption> <b>Figure 1:</b> Illustration of projecting \( x \) onto \( span \{y\} \)</figcaption>
 </figure>
 
-From the picture above it is clear we are looking for the solution, \\(\beta^*\\), of the following optimization problem,
-
+\\(r^Tx = 0\\) defines a hyperplane through the origin and \\(r^Tx = constant\\) define hyperplanes parallel to the one through the origin. \\(z\\) lies in one of these hyperplanes and this hyperplane intersects \\(span\\{c\\} \\). Imagine sliding \\(z\\) between the line segment starting at \\(z \\) and the point on the hyperplane that intersects \\(span\\{c\\} \\). The point at which we stop sliding is \\(\lambda c \\) for appropriate choice of \\(\lambda\\). To determine this \\(\lambda\\) we exploit the crucial fact that both endpoints of the segment lie on the hyperplane. The mathematical implication is,
 \\[
-    \min_{\beta \in span \\{ y\\} } \lVert \beta - x \rVert 
+    r^Tz = r^T(\lambda c) \\\\
+    \lambda = \frac{r^Tz}{r^Tc}
 \\]
 
-To determine \\(\beta^*\\) we will first precisely define some notation. First we define the function \\( P_y : \mathbf{R}^n \to \mathbf{R} \\) as follows,
+Thus we define the projection of \\(z\\) onto \\(span\\{c\\} \\), along hyperplanes perpendicular to \\(r\\) as,
 
 \\[
-    P_y(x) := \text{the magnitude of the projection of \\(x\\) onto the line given by \\( span \\{ y \\}\\)}
+    \mathbf{P}z = \frac{cr^T}{r^Tc}z
 \\]
 
-This definition is meant to reflect that \\( P_y(\cdot) \\) tells us how much in the \\( y \\)-direction do we need to go to get to the projection of \\(x\\) onto \\( span \\{ y \\}\\). By this definition we then have a way to express our projection as,
+Note these projections are not the typical "projections" where the line segment connecting \\(z\\) to \\(\mathbf{P}z\\) forms a right angle with \\(span\\{c\\} \\). Although if \\(r\\) is a multiple of \\(c\\) then our projection is an orthogonal projection.
 
-
-\\[
-    \beta^* = P_y(x)\frac{y}{\lVert y \rVert }
-\\]
-
-### 2) Show \\( P_y(\cdot) \\) is Linear
-While we now have a "solution" this is useless without knowing exactly what \\(P_y(\cdot)\\) is. So we use the geometry of our problem to determine several properties \\(P_y(\cdot)\\) must hold and then use those properties to explicity determine \\(P_y(\cdot)\\).
-
-#### Property 1: Additivity[^1]
-
-Recall that additivity means given \\(x,z \in \mathbf{R}^n \\), that \\(P_y(x+z) = P_y(x)+P_y(z)\\). The following picture is highly suggestive of the fact that \\(P_y(\cdot)\\) must be additive, and for those interested one can convert this intuition to proof[^2] as well.
-<figure align="center">
-  <img src="/server/static/img/additivity.png" alt=":(" width="400" height="400"/>
-  <figcaption> <b>Figure 2:</b> Example of additivity of \(P_y(\cdot)\)</figcaption>
-</figure>
-<details style="background-color:aliceblue;padding:10px;">
-<summary>Proof</summary>
-\[
-    \min_{\beta \in span \{ y\} } \lVert \beta - (x+z) \rVert 
-\]
-We can rewrite this problem as,
-\[
-    \min_{\beta_1, \beta_2 \in span \{ y\} } \lVert \beta_1 + \beta_2 - (x+z) \rVert 
-\]
-Now we know for \( \beta_1 + \beta_2 - (x+z) \) must be perpendicular to \(span\{y\}\). One way to achieve this is choose \(\beta_1\) and \(\beta_2\) to be the projections of \(x\) and \(z\) onto \(span\{y\}\), respectively. If they satisfy the property then we can rewrite the objective as \((\beta_1-x) + (\beta_2 - z)\) which must lie perpendicular to \(span\{y\}\) since both terms are perpendicular to \(span\{y\}\). Since there is only one solution to projecting on the line we then have \(P_y(x+z) = P_y(x)+P_y(z)\). \(\square\) 
-</details>
-
-#### Property 2: Homogeneity
-
-Recall that homogeneity means given \\(x \in \mathbf{R}^n \\) and \\(\lambda \in \mathbf{R}\\), that \\(P_y(\lambda x) = \lambda P_y(x)\\). The following picture is highly suggestive of the fact that \\(P_y(\cdot)\\) must satisfy homogeneity, and for those interested one can convert this intuition to proof[^2] as well.
-
-<figure align="center">
-  <img src="/server/static/img/homogeneity.png" alt=":(" width="400" height="400"/>
-  <figcaption> <b>Figure 3:</b> Example of homogeneity of \(P_y(\cdot)\) using \( \lambda = 3\) </figcaption>
-</figure>
-
-<details style="background-color:aliceblue;padding:10px;">
-<summary>Proof</summary>
-We aim to show that the argument that solves the following optimization problem is \(\lambda\) times the solution to original problem.
-\[
-    \min_{\beta \in span \{ y\} } \lVert \beta - \lambda x \rVert 
-\]
-We realize that we can rewrite the problem as
-\[
-    \min_{\beta \in span \{ y\} } \frac{1}{\lambda} \left\lVert \frac{1}{\lambda}\beta - x \right\rVert 
-\]
-We choose \(\rho = \frac{1}{\lambda}\beta\) and then the problem becomes
-\[
-    \min_{\rho \in span \{ y\} } \frac{1}{\lambda} \left\lVert \rho - x \right\rVert 
-\]
-Since the \(\frac{1}{\lambda}\) outside the norm is a constant it doesn't affect the minimizer so the following problem must have the same minimizer,
-\[
-    \min_{\rho \in span \{ y\} }  \left\lVert \rho - x \right\rVert 
-\]
-Now we know that \(\rho = P_y(x)\) which implies that \(\beta = \lambda P_y(x)\). \(\square\)
-</details>
-
-Now that we have determine these two properties hold, we know that \\( P_y \\) is linear, and that tells us we can represent \\(P_y(\cdot)\\) with a matrix. In particular recall, \\(P_y:\mathbf{R}^n \to \mathbf{R}\\) so our matrix representation of \\(P_y(\cdot)\\) will have shape \\(1 \times n\\). That is we can say for appropriate choices of \\( \mathbf{A} \in \mathbf{R}^{1 \times n} \\),
-
-\\[
-    P_y(x) = \mathbf{A}x
-\\]
-
-We note that since, \\(\mathbf{A} \\) only has \\(1\\) row that we can choose \\(\alpha \in \mathbf{R}^n\\) where \\(\alpha = \mathbf{A}^T\\)[^3], and write the relationship as,
-
-\\[
-    P_y(x) = \mathbf{A}x = \alpha^T x = \langle x, \alpha \rangle
-\\]
-
-### 3) Determine \\( P_y(\cdot)\\) precisely
-To complete our problem we need to exactly determine \\(\alpha\\) and we do so using the fact that \\(P_y(y) = \lVert y \rVert \\). Simply writing out our definitions we get,
-
-\\[
-    \begin{align}
-    P_y(y) =& \lVert y \rVert  \\\\
-           =&  \left( \sum_{i=1}^{n} y_i^2 \right)^{\frac{1}{2}}\\\\
-           =& \sum_{i=1}^{n} \alpha_i y_i \\\\
-           \implies& \alpha_i = \frac{y_i}{\lVert y \rVert}
-    \end{align}
-\\]
-
-Thus we conclude
-\\[
-    P_y(x) = \frac{y^T x}{\lVert y \rVert } \\\\
-    \beta^* = \frac{y^Tx}{\Vert y \rVert^2} y = \frac{yy^T}{\Vert y \rVert^2} x
-\\]
- 
 ### 4) Bonus Content
 
 Looking at [Figure 1](#1-problem-formulation), we may solve this problem in the way we would in high school. That is we could say that from basic trigonometry that,

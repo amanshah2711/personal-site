@@ -6,7 +6,7 @@ function Pages({match}){
         MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
     }
     React.useEffect(() => {
-        fetch(match.url)
+        fetch("/blog" + match.url)
         .then(response => response.text())
         .then(data => {
             var elem = document.getElementById("holder");
@@ -16,10 +16,7 @@ function Pages({match}){
     )
     }, [])
     return (
-        <div class="container">
-        <NavBar/>
-        <div id="holder">
-        </div>
+        <div class="container" id="holder">
         </div>
 
     );

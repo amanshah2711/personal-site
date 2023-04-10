@@ -1,6 +1,7 @@
 title: Geometry of Linear Transformations
 subtitle: This note is simply meant to give examples about important operations that can be done via linear transformations
 date: 2022-04-06
+author: Aman Shah
 
 ### Types of Transformations[^1] 
 <ol>

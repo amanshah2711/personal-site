@@ -1,42 +1,53 @@
+{% extends "index.html" %}
 <html>
 <head>
+
+    {% block header %}
     <title>{{ page.title }}</title>
     <meta charset='UTF-8'>
     <meta content='width=device-width, initial-scale=1' name='viewport'/>
 
-    <meta name='description' content='Aman Shah is an undergraduate at UC Berkeley'>
+    <meta name='description' content='Aman Shah is a UC Berkeley alum'>
     <meta name='keywords' content='{{ page.keywords }}'>
     <meta name='author' content='Aman Shah'>
 
     <link href='/server/static/css/blog.css' rel='stylesheet'/>
     <link href='/server/static/css/trac.css' rel='stylesheet'/>
     <link href='/server/static/css/markdown.css' rel='stylesheet'/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.0/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
 
-    <script type="text/javascript" async
-      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-    </script>
+    {% endblock %}
 </head>
 <body>
-<div class='content' id="page_container">
-    <div class='front-matter'>
-        <div class='wrap'>
-            <h1>{{ page.title }}</h1>
-            <h4>{{ page.subtitle }}</h4>
-            <div class='bylines'>
-                <div class='byline'>
-                    <h3>Published</h3>
-                    <p>{{ page.date}}</p>
+        <div>
+            {% block datum %}
+        </div>
+
+        <div class="container" id="page_container">
+            <div class="front-matter">
+                <div class='wrap'>
+                    <h1>{{ page.title }}</h1>
+                    <h4>{{ page.subtitle }}</h4>
+                    <div class='bylines'>
+                        <div class='byline'>
+                            <h3>Published</h3>
+                            <p>{{ page.date}}</p>
+                        </div>
+                        <div class='byline'>
+                            <h3>Author</h3>
+                            <p>{{ page.author}}</p>
+                        </div>
+                    </div>
+                    <div class='clear'></div>
+                </div>
+                <div class='wrap article justify-content-center col-md-10'>
+                    {{ page }}
                 </div>
             </div>
-            <div class='clear'></div>
         </div>
-    </div>
-    <div class='wrap article justify-content-center col-md-10'>
+        </div>
+    {% endblock %}
 
-        {{ page }}
-    </div>
-
-</div>
 
 </body>
 </html>

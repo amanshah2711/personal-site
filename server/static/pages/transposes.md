@@ -1,6 +1,7 @@
 title: Transposes
 subtitle: We explore how to geometrically understand the transpose of a matrix
 date: 2022-04-05
+author: Aman Shah
 
 ### Outline
 <ol>

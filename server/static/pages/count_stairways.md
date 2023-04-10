@@ -1,6 +1,7 @@
 title: Different Perspectives of Count Stair Ways
 subtitle: We explore various approaches to tackle the problem of distinct ways of climbing stairs
 date: 2021-09-22
+author: Aman Shah
 
 To begin let's reiterate the problem statement. You are going up a stair case with \\( n \\) steps and can take either \\( 1 \\) or \\( 2 \\) steps at a time; how many distinct ways are there to climb this stair case?
 

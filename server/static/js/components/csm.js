@@ -1,5 +1,4 @@
 function CSM(){
-        var { Link } = ReactRouterDOM;
 
         const [rows, setRows] = React.useState(null)
         React.useEffect(() => {
@@ -12,9 +11,7 @@ function CSM(){
         }, [])
         return (
             <div class="container">
-                <NavBar/>
                 <div class="row justify-content-md-center">
-                    <hr class="col-md-11"></hr>
                     <div class="col-md-10">
                         <h3  style={{color:"#047BFE"}}>EECS16B Spring 2022</h3>
                     </div>
@@ -66,9 +63,6 @@ function CSM(){
                           <h3  style={{color:"#047BFE"}}>Additional Resources</h3>
 
                           <ul class="list-group list-group-flush">
-                            <li class="list-group-item "> <Link to='/pages/projections' class="nav-link">1D Projections</Link></li>
-                            <li class="list-group-item "> <Link to='/pages/transposes' class="nav-link">Geometric Interpretation of Transposes</Link></li>
-                            <li class="list-group-item "> <Link to='/pages/geometry' class="nav-link">Geometry of Linear Transformations</Link></li>
                             <li class="list-group-item "> <a href='https://www.youtube.com/playlist?app=desktop&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab' class="nav-link">Essence of Linear Algebra:3Blue1Brown</a></li>
                             <li class="list-group-item "> <a href='https://people.eecs.berkeley.edu/~wkahan/MathH110/index.html' class="nav-link">William Kahan: MathH110 Notes</a></li>
                             <li class="list-group-item "> <a href='https://gregorygundersen.com/blog/2018/12/10/svd/#trefethen1997numerical' class="nav-link">Gregory Gunderson: SVD as Simply as Possible</a></li>

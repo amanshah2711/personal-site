@@ -1,5 +1,4 @@
 function Teaching(){
-        var { Link } = ReactRouterDOM;
 
         const [rows, setRows] = React.useState(null)
         React.useEffect(() => {
@@ -12,9 +11,7 @@ function Teaching(){
         }, [])
         return (
             <div class="container">
-                <NavBar/>
                 <div class="row justify-content-md-center">
-                    <hr class="col-md-11"></hr>
                     <div class="col-md-10">
                         <h3  style={{color:"#047BFE"}}>CS61A Fall 2021</h3>
                     </div>
@@ -69,7 +66,6 @@ function Teaching(){
                       <div class="col-md-10">
                           <h3  style={{color:"#047BFE"}}>Additional Resources</h3>
                           <ul class="list-group list-group-flush">
-                            <li class="list-group-item "> <Link to='/pages/count_stairways' class="nav-link">Count Stairways Breakdown</Link></li>
                           </ul>
                       </div>
                   </div>
